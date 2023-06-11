@@ -40,7 +40,9 @@ export default function DesignTab(props: DesignTabProps) {
         step: editorProvider.createStepValidator()
       }}
       controlBar={true}
-      stepsConfiguration={{}}
+      stepsConfiguration={{
+        iconUrlProvider: () => '/assets/icon-task.svg'
+      }}
       onDefinitionChange={onChange}
       toolboxConfiguration={{
         groups: [

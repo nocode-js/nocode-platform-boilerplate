@@ -1,5 +1,5 @@
 import { createActivitySet } from 'sequential-workflow-machine';
-import { downloadHtmlActivity } from './activities/downloadHtmlActivity';
-import { readHtmlTagActivity } from './activities/readHtmlTagActivity';
+import { httpRequestActivity } from './activities/httpRequestActivity';
+import { readJsonNodeActivity } from './activities/readJsonNodeActivity';
 
-export const activitySet = createActivitySet([downloadHtmlActivity, readHtmlTagActivity]);
+export const activitySet = createActivitySet([httpRequestActivity, readJsonNodeActivity]);

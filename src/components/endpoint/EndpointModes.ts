@@ -6,14 +6,14 @@ export function createEndpointModes(current: EndpointMode, isNewMode: boolean): 
   const modes = [
     {
       id: 'edit',
-      label: 'Edit endpoint',
+      label: isNewMode ? 'Create' : 'Edit',
       isSelected: current === 'edit'
     }
   ];
   if (!isNewMode) {
     modes.push({
       id: 'test',
-      label: 'Test endpoint',
+      label: 'Test',
       isSelected: current === 'test'
     });
   }

@@ -26,11 +26,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const machine = EndpointWorkflowMachine.create(endpoint.definition, inputs);
   machine.start();
 
-  await machine.wait();
+  try {
+    await machine.wait();
 
-  const response: ExecuteEndpointResponse = {
-    logs: machine.readLogs(),
-    outputs: machine.readOutputs()
-  };
-  res.status(200).json(response);
+    const response: ExecuteEndpointResponse = {
+      logs: machine.readLogs(),
+      outputs: machine.readOutputs()
+    };
+    res.status(200).json(response);
+  } catch (e) {
+    const error = e instanceof Error ? e.message : 'Internal error';
+    res.status(500).json({ error });
+  }
 }

@@ -37,14 +37,14 @@ export class EndpointWorkflowMachine {
   }
 
   public async wait(): Promise<void> {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       this.interpreter.onDone(() => {
         const snapshot = this.interpreter.getSnapshot();
-        this.logger.log(`Workflow finished with status: ${snapshot.statePath.join()}`);
         if (snapshot.unhandledError) {
-          this.logger.log(`Workflow finished with error: ${snapshot.unhandledError}`);
+          reject(snapshot.unhandledError);
+        } else {
+          resolve();
         }
-        resolve();
       });
     });
   }

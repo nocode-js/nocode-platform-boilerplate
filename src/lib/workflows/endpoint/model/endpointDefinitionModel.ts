@@ -5,8 +5,8 @@ import {
   variableDefinitionsValueModel
 } from 'sequential-workflow-editor-model';
 import { Definition } from 'sequential-workflow-model';
-import { downloadHtmlStepModel } from './downloadHtmlStepModel';
-import { readHtmlTagStepModel } from './readHtmlTagStepModel';
+import { httpRequestStepModel } from './httpRequestModel';
+import { readJsonNodeStepModel } from './readJsonNodeStepModel';
 
 export interface EndpointDefinition extends Definition {
   properties: {
@@ -23,7 +23,7 @@ export const rootModel = createRootModel<EndpointDefinition>(root => {
 });
 
 export const endpointDefinitionModel = createDefinitionModel<EndpointDefinition>(model => {
-  model.valueTypes(['string', 'number', 'html']);
+  model.valueTypes(['string', 'number']);
   model.root(rootModel);
-  model.steps([downloadHtmlStepModel, readHtmlTagStepModel]);
+  model.steps([httpRequestStepModel, readJsonNodeStepModel]);
 });

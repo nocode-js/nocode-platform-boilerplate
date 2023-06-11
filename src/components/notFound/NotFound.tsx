@@ -3,8 +3,8 @@ import { ErrorPage } from '../theme/error/ErrorPage';
 
 export function NotFound() {
   return (
-    <FullscreenLayout title="Not found">
-      <ErrorPage message="Not found" />
+    <FullscreenLayout title="Page not found">
+      <ErrorPage message="Page not found" />
     </FullscreenLayout>
   );
 }

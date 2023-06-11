@@ -15,7 +15,7 @@ export interface EndpointTesterProps {
 }
 
 export function EndpointTester(props: EndpointTesterProps) {
-  const isTesting = useRef(false);
+  const [isExecuting, setIsExecuting] = useState(false);
   const definition = useMemo<EndpointDefinition>(() => JSON.parse(props.endpoint.definition), [props.endpoint.definition]);
   const [state, setState] = useState(() => createTestTabState(definition.properties.inputs));
   const isValid = !state.parserResult.errors;
@@ -38,10 +38,10 @@ export function EndpointTester(props: EndpointTesterProps) {
   }
 
   async function onRunClicked() {
-    if (!isValid || isTesting.current) {
+    if (!isValid || isExecuting) {
       return;
     }
-    isTesting.current = true;
+    setIsExecuting(true);
 
     let logs: string[] = [];
     const executor = new EndpointExecutor(message => {
@@ -53,18 +53,19 @@ export function EndpointTester(props: EndpointTesterProps) {
     });
     await executor.execute(props.endpoint.url, state.parserResult.values);
 
-    isTesting.current = false;
+    setIsExecuting(false);
   }
 
   return (
     <DefaultLayout title="Test endpoint">
       <EndpointPage
+        name={props.endpoint.name}
         modes={modes}
         onModeChanged={onModeChanged}
         tabs={tabs}
         onTabClicked={() => {}}
         primaryButtonLabel="Run"
-        isPrimaryButtonDisabled={!isValid}
+        isPrimaryButtonDisabled={!isValid || isExecuting}
         onPrimaryButtonClicked={onRunClicked}
       >
         <TestTab url={props.endpoint.url} inputDefinitions={definition.properties.inputs} state={state} onStateChanged={setState} />

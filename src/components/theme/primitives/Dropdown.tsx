@@ -8,6 +8,7 @@ export interface DropdownProps {
 
 export function Dropdown(props: DropdownProps) {
   const [isOpened, setIsOpened] = useState(false);
+  const [buttonRef, setButtonRef] = useState<HTMLButtonElement | null>(null);
   const [dropdownRef, setDropdownRef] = useState<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -26,7 +27,11 @@ export function Dropdown(props: DropdownProps) {
     e.stopPropagation();
     e.preventDefault();
 
-    setIsOpened(!isOpened);
+    const is = !isOpened;
+    setIsOpened(is);
+    if (is && dropdownRef && buttonRef) {
+      dropdownRef.style.width = buttonRef.offsetWidth + 'px';
+    }
   }
 
   function select(index: number) {
@@ -40,6 +45,7 @@ export function Dropdown(props: DropdownProps) {
         type="button"
         className="text-white bg-blue-600 hover:bg-blue-500 w-full focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 inline-flex items-center"
         onClick={toggle}
+        ref={setButtonRef}
       >
         <span className="inline flex-1 w-full text-left">{props.options[props.selectedIndex]}</span>
         <svg

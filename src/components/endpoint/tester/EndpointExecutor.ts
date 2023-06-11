@@ -22,7 +22,7 @@ export class EndpointExecutor {
       const outputNames = Object.keys(response.outputs);
       if (outputNames.length > 0) {
         this.log('Outputs:');
-        for (const outputName in outputNames) {
+        for (const outputName of outputNames) {
           this.log(`~ ${outputName} = ${response.outputs[outputName]}`);
         }
       }

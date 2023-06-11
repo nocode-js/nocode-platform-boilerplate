@@ -28,7 +28,7 @@ export function EndpointEditor(props: EndpointEditorProps) {
   const [state, setState] = useState<EndpointEditorState>(() => ({
     overview: createOverviewTabState(props.endpoint),
     design: createDesignTabState(
-      props.endpoint?.definition ? JSON.parse(props.endpoint.definition) : StartDefinitionActivator.createDefault()
+      props.endpoint?.definition ? JSON.parse(props.endpoint.definition) : StartDefinitionActivator.createDefault('plnUsdPrice')
     )
   }));
 
@@ -101,6 +101,7 @@ export function EndpointEditor(props: EndpointEditorProps) {
   return (
     <DefaultLayout title="Edit endpoint">
       <EndpointPage
+        name={state.overview.name}
         modes={modes}
         onModeChanged={onModeChanged}
         tabs={tabs}

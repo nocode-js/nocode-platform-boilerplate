@@ -3,35 +3,48 @@ import { ExecuteEndpointRequest } from './ExecuteEndpointRequest';
 import { ExecuteEndpointResponse } from './ExecuteEndpointResponse';
 import { UpdateEndpointRequest } from './UpdateEndpointRequest';
 
-const headers = {
-  'Content-Type': 'application/json'
-};
-
 export class ApiClient {
   public static async createEndpoint(request: CreateEndpointRequest): Promise<string> {
-    const result = await fetch('/api/endpoints', {
+    const result = await httpRequest('/api/endpoints', {
       method: 'POST',
-      headers,
       body: JSON.stringify(request)
     });
-    const json = await result.json();
-    return json['id'];
+    return result['id'];
   }
 
   public static async updateEndpoint(id: string, request: UpdateEndpointRequest): Promise<void> {
-    await fetch(`/api/endpoints/${id}`, {
+    await httpRequest(`/api/endpoints/${id}`, {
       method: 'PUT',
-      headers,
       body: JSON.stringify(request)
     });
   }
 
   public static async executeEndpoint(url: string, request: ExecuteEndpointRequest): Promise<ExecuteEndpointResponse> {
-    const result = await fetch(`/api/functions/${url}`, {
+    return await httpRequest(`/api/functions/${url}`, {
       method: 'POST',
-      headers,
       body: JSON.stringify(request)
     });
-    return await result.json();
   }
+}
+
+async function httpRequest(url: string, options: RequestInit): Promise<any> {
+  const response = await fetch(url, {
+    ...options,
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+
+  if (response.status !== 200) {
+    let error: string | null = null;
+    try {
+      const json = await response.json();
+      if (json['error']) {
+        error = json['error'];
+      }
+    } catch (e) {}
+    throw new Error(error || 'Unknown error');
+  }
+
+  return await response.json();
 }

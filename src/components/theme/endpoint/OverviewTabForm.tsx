@@ -1,4 +1,5 @@
 import { Input } from '../primitives/Input';
+import { InputError } from '../primitives/InputError';
 import { Textarea } from '../primitives/Textarea';
 
 export interface OverviewTabFormProps {
@@ -18,10 +19,12 @@ export function OverviewTabForm(props: OverviewTabFormProps) {
       <div className="mb-4">
         <label className="block mb-2 text-sm font-medium text-gray-900">Name *</label>
         <Input value={props.name} isInvalid={!!props.nameError} onChanged={props.onNameChanged} />
+        <InputError error={props.nameError} />
       </div>
       <div className="mb-4">
         <label className="block mb-2 text-sm font-medium text-gray-900">URL *</label>
         <Input value={props.url} isInvalid={!!props.urlError} onChanged={props.onUrlChanged} />
+        <InputError error={props.urlError} />
       </div>
       <div className="mb-4">
         <label className="block mb-2 text-sm font-medium text-gray-900">Description</label>
