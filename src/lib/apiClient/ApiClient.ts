@@ -19,6 +19,12 @@ export class ApiClient {
     });
   }
 
+  public static async deleteEndpoint(id: string): Promise<void> {
+    await httpRequest(`/api/endpoints/${id}`, {
+      method: 'DELETE'
+    });
+  }
+
   public static async executeEndpoint(url: string, request: ExecuteEndpointRequest): Promise<ExecuteEndpointResponse> {
     return await httpRequest(`/api/functions/${url}`, {
       method: 'POST',

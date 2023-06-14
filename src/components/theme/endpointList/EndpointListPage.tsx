@@ -3,6 +3,7 @@ import { Button } from '../primitives/Button';
 
 export interface EndpointListPageProps {
   createUrl: string;
+  onDeleteClicked: (id: string) => void;
   endpoints: {
     id: string;
     name: string;
@@ -51,8 +52,11 @@ export function EndpointListPage(props: EndpointListPageProps) {
                 <Button href={e.editUrl} size="sm" className="mr-1">
                   Edit
                 </Button>
-                <Button href={e.testUrl} style="secondary" size="sm">
+                <Button href={e.testUrl} style="secondary" size="sm" className="mr-1">
                   Test
+                </Button>
+                <Button onClicked={() => props.onDeleteClicked(e.id)} style="secondary" size="sm">
+                  Delete
                 </Button>
               </div>
             </div>

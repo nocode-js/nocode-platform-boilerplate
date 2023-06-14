@@ -1,8 +1,8 @@
 import {
-  NullableVariable,
+  NullableAnyVariable,
   choiceValueModel,
   createStepModel,
-  nullableVariableValueModel,
+  nullableAnyVariableValueModel,
   stringValueModel
 } from 'sequential-workflow-editor-model';
 import { Step } from 'sequential-workflow-model';
@@ -13,11 +13,13 @@ export interface HttpRequestStep extends Step {
   properties: {
     method: string;
     url: string;
-    result: NullableVariable;
+    response: NullableAnyVariable;
   };
 }
 
 export const httpRequestStepModel = createStepModel<HttpRequestStep>('httpRequest', 'task', step => {
+  step.category('Requests');
+
   step.property('method').value(
     choiceValueModel({
       choices: ['GET', 'POST'],
@@ -31,10 +33,13 @@ export const httpRequestStepModel = createStepModel<HttpRequestStep>('httpReques
     })
   );
 
-  step.property('result').value(
-    nullableVariableValueModel({
-      variableType: 'string',
-      isRequired: true
-    })
-  );
+  step
+    .property('response')
+    .value(
+      nullableAnyVariableValueModel({
+        valueTypes: ['string', 'json'],
+        isRequired: true
+      })
+    )
+    .label('Response variable');
 });

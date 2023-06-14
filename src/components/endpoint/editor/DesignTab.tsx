@@ -45,12 +45,7 @@ export default function DesignTab(props: DesignTabProps) {
       }}
       onDefinitionChange={onChange}
       toolboxConfiguration={{
-        groups: [
-          {
-            name: 'Steps',
-            steps: Object.keys(endpointDefinitionModel.steps).map(type => editorProvider.activateStep(type))
-          }
-        ]
+        groups: editorProvider.getToolboxGroups()
       }}
     />
   );

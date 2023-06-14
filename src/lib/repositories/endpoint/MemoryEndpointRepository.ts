@@ -25,6 +25,16 @@ export class MemoryEndpointRepository implements EndpointRepository {
     collection.push(endpoint.toJSON());
   }
 
+  public async tryDeleteById(id: string): Promise<boolean> {
+    const collection = getCollection();
+    const index = collection.findIndex(e => e.id === id);
+    if (index < 0) {
+      return false;
+    }
+    collection.splice(index, 1);
+    return true;
+  }
+
   public async getAll(): Promise<Endpoint[]> {
     return getCollection().map(Endpoint.fromJSON);
   }

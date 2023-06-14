@@ -42,11 +42,11 @@ dependencies:
     specifier: ^0.13.2
     version: 0.13.2(react-dom@18.2.0)(react@18.2.0)(sequential-workflow-designer@0.13.2)
   sequential-workflow-editor:
-    specifier: ^0.2.1
-    version: 0.2.1(sequential-workflow-editor-model@0.2.1)(sequential-workflow-model@0.1.3)
+    specifier: ^0.3.2
+    version: 0.3.2(sequential-workflow-editor-model@0.3.2)(sequential-workflow-model@0.1.3)
   sequential-workflow-editor-model:
-    specifier: ^0.2.1
-    version: 0.2.1(sequential-workflow-model@0.1.3)
+    specifier: ^0.3.2
+    version: 0.3.2(sequential-workflow-model@0.1.3)
   sequential-workflow-machine:
     specifier: ^0.2.0
     version: 0.2.0(sequential-workflow-model@0.1.3)(xstate@4.37.2)
@@ -2398,21 +2398,21 @@ packages:
       sequential-workflow-model: 0.1.3
     dev: false
 
-  /sequential-workflow-editor-model@0.2.1(sequential-workflow-model@0.1.3):
-    resolution: {integrity: sha512-3YvpkQms3G7XBMWBugiSqYOC4vKZqpaLw5yDDWno0TzPDolvIKuSdk/BCtIRfCCi82kAILcPXzHNVgflEALkuw==}
+  /sequential-workflow-editor-model@0.3.2(sequential-workflow-model@0.1.3):
+    resolution: {integrity: sha512-1FEBFytVHQOO4vXqZjGhbCQAOJqVM/uwSB5wQF7eyPS7BkQhw/SNPs3JJNZNdqWowbV7y9w+H7DwmKEGkLnuzw==}
     peerDependencies:
       sequential-workflow-model: ^0.1.3
     dependencies:
       sequential-workflow-model: 0.1.3
     dev: false
 
-  /sequential-workflow-editor@0.2.1(sequential-workflow-editor-model@0.2.1)(sequential-workflow-model@0.1.3):
-    resolution: {integrity: sha512-SyqxgOFL6LVn2s2/H3dx8lBMTWu0tReVe1tn6OKRtSUB4pvT7CR8a/5TeWzzcMauT5CkaQokS8ZeMMHyeFzVyQ==}
+  /sequential-workflow-editor@0.3.2(sequential-workflow-editor-model@0.3.2)(sequential-workflow-model@0.1.3):
+    resolution: {integrity: sha512-1ZVJF1yMn37p9qmLs7gNSNNhJ5dtfWHaPWIXT6luHMC43LWy1RDt1WFRWo+ji026S40CPlRWrq+DGd2ZMYoE5A==}
     peerDependencies:
-      sequential-workflow-editor-model: ^0.2.1
+      sequential-workflow-editor-model: ^0.3.2
       sequential-workflow-model: ^0.1.3
     dependencies:
-      sequential-workflow-editor-model: 0.2.1(sequential-workflow-model@0.1.3)
+      sequential-workflow-editor-model: 0.3.2(sequential-workflow-model@0.1.3)
       sequential-workflow-model: 0.1.3
     dev: false
 
