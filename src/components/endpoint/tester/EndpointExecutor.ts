@@ -15,15 +15,15 @@ export class EndpointExecutor {
       const duration = endTime - startTime;
       this.log(`Executed in ${duration}ms`);
 
-      for (const serverLog of response.logs) {
+      for (const serverLog of response.__logs) {
         this.log(`~ ${serverLog}`);
       }
 
-      const outputNames = Object.keys(response.outputs);
+      const outputNames = Object.keys(response).filter(key => key !== '__logs');
       if (outputNames.length > 0) {
         this.log('Outputs:');
         for (const outputName of outputNames) {
-          this.log(`~ ${outputName} = ${response.outputs[outputName]}`);
+          this.log(`~ ${outputName} = ${response[outputName]}`);
         }
       }
     } catch (e) {

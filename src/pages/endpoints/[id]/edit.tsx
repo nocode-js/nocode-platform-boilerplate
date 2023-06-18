@@ -18,8 +18,11 @@ export default function Edit(props: InferGetServerSidePropsType<typeof getServer
     });
   }
 
-  function onModeChanged(modeId: string) {
+  function onModeChanged(modeId: string, isDirty: boolean) {
     if (modeId === 'test') {
+      if (isDirty && !confirm('You have unsaved changes. Are you sure you want to continue?')) {
+        return;
+      }
       router.push(`/endpoints/${props.id}/test`);
     }
   }

@@ -15,7 +15,7 @@ const DesignTab = dynamic(() => import('./DesignTab'), { ssr: false });
 export interface EndpointEditorProps {
   endpoint?: EndpointJSON;
   onSave: (name: string, url: string, description: string, definition: EndpointDefinition) => Promise<void>;
-  onModeChanged?: (modeId: string) => void;
+  onModeChanged: (modeId: string, isDirty: boolean) => void;
 }
 
 interface EndpointEditorState {
@@ -28,7 +28,7 @@ export function EndpointEditor(props: EndpointEditorProps) {
   const [state, setState] = useState<EndpointEditorState>(() => ({
     overview: createOverviewTabState(props.endpoint),
     design: createDesignTabState(
-      props.endpoint?.definition ? JSON.parse(props.endpoint.definition) : StartDefinitionActivator.createDefault('plnUsdPrice')
+      props.endpoint?.definition ? JSON.parse(props.endpoint.definition) : StartDefinitionActivator.createDefault()
     )
   }));
 
@@ -59,7 +59,7 @@ export function EndpointEditor(props: EndpointEditorProps) {
 
   function onModeChanged(index: number) {
     if (props.onModeChanged) {
-      props.onModeChanged(modes[index].id);
+      props.onModeChanged(modes[index].id, isDirty);
     }
   }
 

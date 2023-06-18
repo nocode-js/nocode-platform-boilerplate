@@ -5,6 +5,7 @@ import { TestTabState } from './TestTabState';
 import { useMemo } from 'react';
 
 export interface TestTabProps {
+  description: string;
   url: string;
   inputDefinitions: VariableDefinitions;
   state: TestTabState;
@@ -36,5 +37,5 @@ export function TestTab(props: TestTabProps) {
     });
   }
 
-  return <TestTabForm logs={props.state.logs} inputs={inputs} onInputChanged={onInputChanged} />;
+  return <TestTabForm description={props.description} logs={props.state.logs} inputs={inputs} onInputChanged={onInputChanged} />;
 }

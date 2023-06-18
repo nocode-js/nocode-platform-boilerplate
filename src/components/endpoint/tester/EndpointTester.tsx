@@ -68,7 +68,13 @@ export function EndpointTester(props: EndpointTesterProps) {
         isPrimaryButtonDisabled={!isValid || isExecuting}
         onPrimaryButtonClicked={onRunClicked}
       >
-        <TestTab url={props.endpoint.url} inputDefinitions={definition.properties.inputs} state={state} onStateChanged={setState} />
+        <TestTab
+          description={props.endpoint.description}
+          url={props.endpoint.url}
+          inputDefinitions={definition.properties.inputs}
+          state={state}
+          onStateChanged={setState}
+        />
       </EndpointPage>
     </DefaultLayout>
   );

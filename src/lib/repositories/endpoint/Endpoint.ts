@@ -21,7 +21,7 @@ export class Endpoint {
     public readonly id: string,
     public name: string,
     public url: string,
-    public description: string = '',
+    public description: string,
     public definition: EndpointDefinition
   ) {}
 

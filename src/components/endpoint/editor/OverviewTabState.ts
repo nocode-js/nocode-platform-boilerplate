@@ -1,3 +1,4 @@
+import { UidGenerator } from '@/lib/core/UidGenerator';
 import { EndpointJSON } from '@/lib/repositories/endpoint/EndpointJSON';
 import { EndpointValidator } from '@/lib/repositories/endpoint/EndpointValidator';
 
@@ -17,7 +18,7 @@ export interface OverviewTabErrors {
 export function createOverviewTabState(endpoint: EndpointJSON | undefined): OverviewTabState {
   const value = {
     name: endpoint?.name ?? '',
-    url: endpoint?.url ?? '',
+    url: endpoint?.url ?? createDefaultUrl(),
     description: endpoint?.description ?? ''
   };
   return {
@@ -25,6 +26,10 @@ export function createOverviewTabState(endpoint: EndpointJSON | undefined): Over
     isDirty: false,
     errors: validateOverviewTabState(value)
   };
+}
+
+function createDefaultUrl(): string {
+  return UidGenerator.next().substring(0, 8);
 }
 
 export function validateOverviewTabState(state: Omit<OverviewTabState, 'isDirty' | 'errors'>): OverviewTabErrors | undefined {

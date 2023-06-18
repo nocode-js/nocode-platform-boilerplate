@@ -6,13 +6,13 @@ export const setActivity = createAtomActivity<SetStep, EndpointWorkflowGlobalSta
   stepType: 'set',
   init: () => ({}),
   handler: async ({ properties }: SetStep, { $dynamics, $variables }: EndpointWorkflowGlobalState) => {
-    if (!properties.target) {
+    if (!properties.result) {
       throw new Error('Target variable is required');
     }
 
-    const source = $dynamics.readAny(properties.source);
-    const value = convertValue(source, properties.target.type);
-    $variables.set(properties.target.name, value);
+    const source = $dynamics.readAny(properties.value);
+    const value = convertValue(source, properties.result.type);
+    $variables.set(properties.result.name, value);
   }
 });
 

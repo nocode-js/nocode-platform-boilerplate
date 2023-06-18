@@ -17,6 +17,7 @@ export interface ForStep extends SequentialStep {
   properties: {
     from: Dynamic<NullableVariable | number>;
     to: Dynamic<NullableVariable | number>;
+    delta: Dynamic<NullableVariable | number>;
     indexVariable: NullableVariableDefinition;
   };
 }
@@ -24,7 +25,7 @@ export interface ForStep extends SequentialStep {
 export const forStepModel = createSequentialStepModel('for', 'container', step => {
   step.category('Flow');
 
-  const fromTo = dynamicValueModel({
+  const val = dynamicValueModel({
     models: [
       nullableVariableValueModel({
         isRequired: true,
@@ -34,8 +35,9 @@ export const forStepModel = createSequentialStepModel('for', 'container', step =
     ]
   });
 
-  step.property('from').value(fromTo);
-  step.property('to').value(fromTo);
+  step.property('from').value(val);
+  step.property('to').value(val);
+  step.property('delta').value(val);
 
   step.property('indexVariable').value(
     nullableVariableDefinitionValueModel({

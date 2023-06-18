@@ -34,7 +34,8 @@ export const forActivity = createLoopActivity<ForStep, EndpointWorkflowGlobalSta
     if (activityState.isFirstEnter) {
       activityState.isFirstEnter = false;
     } else {
-      index++;
+      const delta = $dynamics.readAny<number>(properties.delta);
+      index += delta;
     }
 
     $variables.set(activityState.indexVariableName, index);

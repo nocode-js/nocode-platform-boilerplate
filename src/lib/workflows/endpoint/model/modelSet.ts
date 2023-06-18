@@ -6,6 +6,8 @@ import { logStepModel } from './steps/tracing/logStepModel';
 import { setStepModel } from './steps/primitives/setStepModel';
 import { forStepModel } from './steps/flow/forStepModel';
 import { arrayLengthStepModel } from './steps/json/arrayLengthStepModel';
+import { equationStepModel } from './steps/primitives/equationStepModel';
+import { randomStepModel } from './steps/primitives/randomStepModel';
 
 export const modelSet: StepModel[] = [
   forStepModel,
@@ -14,5 +16,7 @@ export const modelSet: StepModel[] = [
   ifStepModel,
   jsonValueStepModel,
   arrayLengthStepModel,
+  equationStepModel,
+  randomStepModel,
   setStepModel
 ];

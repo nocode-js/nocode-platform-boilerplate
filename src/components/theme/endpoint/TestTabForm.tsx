@@ -8,6 +8,7 @@ export interface TestTabFormInput {
 }
 
 export interface TestTabFormProps {
+  description: string;
   inputs: TestTabFormInput[];
   logs: string[];
   onInputChanged: (index: number, value: string) => void;
@@ -42,8 +43,12 @@ export function TestTabForm(props: TestTabFormProps) {
             </ul>
           )}
           {props.logs.length === 0 && (
-            <div className="p-4 text-gray-500">
-              To run test you need to press {'"'}Run{'"'} button.
+            <div className="p-4">
+              <div className="border p-2 rounded-md mb-2">{props.description}</div>
+
+              <div className="text-gray-500">
+                To run test you need to press {'"'}Run{'"'} button.
+              </div>
             </div>
           )}
         </div>

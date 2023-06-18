@@ -5,17 +5,18 @@ import { EndpointWorkflowGlobalState } from '../../EndpointWorkflowGlobalState';
 export const httpRequestActivity = createAtomActivity<HttpRequestStep, EndpointWorkflowGlobalState>({
   stepType: 'httpRequest',
   init: () => ({}),
-  handler: async (step: HttpRequestStep, { $logger, $variables }: EndpointWorkflowGlobalState) => {
+  handler: async (step: HttpRequestStep, { $logger, $variables, $evaluator: $richText }: EndpointWorkflowGlobalState) => {
     if (!step.properties.response) {
       throw new Error('Result variable is not set');
     }
 
-    const response = await fetch(step.properties.url, {
+    const url = $richText.evaluateUrl(step.properties.url);
+    const response = await fetch(url, {
       method: step.properties.method
     });
     const text = await response.text();
 
-    $logger.log(`Downloaded ${text.length} bytes from ${step.properties.url}`);
+    $logger.log(`Downloaded ${text.length} bytes from ${url}`);
 
     let value: unknown;
     switch (step.properties.response.type) {

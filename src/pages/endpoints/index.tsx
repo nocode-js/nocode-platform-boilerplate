@@ -1,6 +1,7 @@
 import { DefaultLayout } from '@/components/layout/DefaultLayout';
 import { EndpointListPage } from '@/components/theme/endpointList/EndpointListPage';
 import { ApiClient } from '@/lib/apiClient/ApiClient';
+import { setup } from '@/lib/repositories/storageInstaller';
 import { storage } from '@/lib/repositories/storage';
 import { InferGetServerSidePropsType } from 'next';
 import { useRouter } from 'next/router';
@@ -34,9 +35,15 @@ export default function Index(props: InferGetServerSidePropsType<typeof getServe
 }
 
 export async function getServerSideProps() {
+  let endpoints = await storage.endpoint.getAll();
+  if (endpoints.length === 0) {
+    await setup(storage);
+    endpoints = await storage.endpoint.getAll();
+  }
+
   return {
     props: {
-      endpoints: (await storage.endpoint.getAll()).map(e => e.toJSON())
+      endpoints: endpoints.map(e => e.toJSON())
     }
   };
 }

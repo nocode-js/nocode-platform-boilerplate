@@ -40,7 +40,7 @@ export function EndpointListPage(props: EndpointListPageProps) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-4">
           {props.endpoints.map(e => (
             <div key={e.id} className="p-2.5 border border-gray-300/80 rounded-t-md">
-              <h4 className="text-l font-bold">{e.name}</h4>
+              <h4 className="text-xl font-bold">{e.name}</h4>
 
               <div className="mt-1">
                 <code className="bg-blue-100 px-2 py-1 rounded-md text-xs">

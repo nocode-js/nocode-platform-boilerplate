@@ -5,7 +5,7 @@ import { EndpointWorkflowGlobalState } from './EndpointWorkflowGlobalState';
 import { LoggerService } from './services/LoggerService';
 import { VariablesService, createVariableState } from './services/VariablesService';
 import { DynamicsService } from './services/DynamicsService';
-import { RichTextService } from './services/RichTextService';
+import { EvaluatorService } from './services/EvaluatorService';
 
 const builder = createWorkflowMachineBuilder(activitySet);
 
@@ -13,10 +13,10 @@ export class EndpointWorkflowMachine {
   public static create(definition: EndpointDefinition, inputs: Record<string, unknown>): EndpointWorkflowMachine {
     const machine = builder.build(definition);
     const logger = new LoggerService();
-    const variablesState = createVariableState();
+    const variablesState = createVariableState(inputs);
     const variables = new VariablesService(variablesState);
     const dynamics = new DynamicsService(variables);
-    const richText = new RichTextService(variables);
+    const evaluator = new EvaluatorService(variables);
 
     const interpreter = machine.create({
       init: () => {
@@ -25,7 +25,7 @@ export class EndpointWorkflowMachine {
           $logger: logger,
           $variables: variables,
           $dynamics: dynamics,
-          $richText: richText
+          $evaluator: evaluator
         };
       }
     });

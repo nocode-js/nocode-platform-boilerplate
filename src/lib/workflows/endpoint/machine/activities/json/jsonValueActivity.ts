@@ -1,20 +1,18 @@
 import { createAtomActivity } from 'sequential-workflow-machine';
 import { JsonValueStep } from '../../../model/steps/json/jsonValueStepModel';
 import { EndpointWorkflowGlobalState } from '../../EndpointWorkflowGlobalState';
-import { Path } from 'sequential-workflow-editor-model';
 
 export const jsonValueActivity = createAtomActivity<JsonValueStep, EndpointWorkflowGlobalState>({
   stepType: 'jsonValue',
   init: () => ({}),
-  handler: async (step: JsonValueStep, { $variables, $richText }: EndpointWorkflowGlobalState) => {
+  handler: async (step: JsonValueStep, { $variables, $evaluator: $richText }: EndpointWorkflowGlobalState) => {
     if (!step.properties.json || !step.properties.output) {
       throw new Error('Invalid model');
     }
 
     const json = $variables.read<object>(step.properties.json.name);
 
-    const path = Path.create(step.properties.path);
-    $richText.updateArray(path.parts);
+    const path = $richText.evaluatePath(step.properties.path);
     const value = path.read(json);
 
     const targetValue = castToType(value, step.properties.output.type);

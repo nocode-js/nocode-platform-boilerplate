@@ -30,8 +30,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     await machine.wait();
 
     const response: ExecuteEndpointResponse = {
-      logs: machine.readLogs(),
-      outputs: machine.readOutputs()
+      __logs: machine.readLogs(),
+      ...machine.readOutputs()
     };
     res.status(200).json(response);
   } catch (e) {

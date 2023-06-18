@@ -1,6 +1,6 @@
 import { DynamicsService } from './services/DynamicsService';
 import { LoggerService } from './services/LoggerService';
-import { RichTextService } from './services/RichTextService';
+import { EvaluatorService } from './services/EvaluatorService';
 import { VariableState, VariablesService } from './services/VariablesService';
 
 export interface EndpointWorkflowGlobalState {
@@ -10,5 +10,5 @@ export interface EndpointWorkflowGlobalState {
   readonly $logger: LoggerService;
   readonly $variables: VariablesService;
   readonly $dynamics: DynamicsService;
-  readonly $richText: RichTextService;
+  readonly $evaluator: EvaluatorService;
 }
