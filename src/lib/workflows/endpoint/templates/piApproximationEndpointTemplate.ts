@@ -17,7 +17,7 @@ const definition = () => ({
           type: 'number'
         },
         {
-          name: 'sing',
+          name: 'sign',
           type: 'number'
         },
         {
@@ -102,7 +102,7 @@ const definition = () => ({
       name: '$sign = -1',
       properties: {
         result: {
-          name: 'sing',
+          name: 'sign',
           type: 'number'
         },
         value: {
@@ -115,7 +115,7 @@ const definition = () => ({
     {
       componentType: 'container',
       id: 'fb2f7dcf16c1e0dc5038ac45eb859358',
-      name: 'Loop',
+      name: '3 < $to, Δ2',
       properties: {
         delta: {
           modelId: 'number',
@@ -173,7 +173,7 @@ const definition = () => ({
             b: {
               modelId: 'nullableVariable',
               value: {
-                name: 'sing'
+                name: 'sign'
               }
             },
             operator: '*',
@@ -215,7 +215,7 @@ const definition = () => ({
             a: {
               modelId: 'nullableVariable',
               value: {
-                name: 'sing'
+                name: 'sign'
               }
             },
             b: {
@@ -224,7 +224,7 @@ const definition = () => ({
             },
             operator: '*',
             result: {
-              name: 'sing'
+              name: 'sign'
             }
           },
           type: 'equation'

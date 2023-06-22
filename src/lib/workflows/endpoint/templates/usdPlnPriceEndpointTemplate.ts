@@ -26,7 +26,7 @@ const definition = () => ({
     {
       componentType: 'task',
       id: '8708c21483e78deaea63fc5e4a62a666',
-      name: 'Http request',
+      name: '$buffer = GET http://api.nbp.pl',
       properties: {
         method: 'GET',
         response: {
@@ -40,7 +40,7 @@ const definition = () => ({
     {
       componentType: 'task',
       id: '54cb2883fa2468a158bf204ea2256c81',
-      name: 'Read price',
+      name: '$plnUsdPrice = $buffer[rates…]',
       properties: {
         json: {
           name: 'buffer',

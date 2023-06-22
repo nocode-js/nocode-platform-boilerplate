@@ -37,7 +37,7 @@ export function EndpointListPage(props: EndpointListPageProps) {
       )}
 
       {props.endpoints.length > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-4 mx-2.5">
           {props.endpoints.map(e => (
             <div key={e.id} className="p-2.5 border border-gray-300/80 rounded-t-md">
               <h4 className="text-xl font-bold">{e.name}</h4>

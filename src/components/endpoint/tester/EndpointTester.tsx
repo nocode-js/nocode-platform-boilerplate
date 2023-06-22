@@ -5,8 +5,8 @@ import { TestTab } from './TestTab';
 import { DefaultLayout } from '@/components/layout/DefaultLayout';
 import { EndpointJSON } from '@/lib/repositories/endpoint/EndpointJSON';
 import { createTestTabState } from './TestTabState';
-import { EndpointDefinition } from '@/lib/workflows/endpoint/model/endpointDefinitionModel';
 import { EndpointExecutor } from './EndpointExecutor';
+import { EndpointDefinition } from '@/lib/workflows/endpoint/model/EndpointDefinition';
 
 export interface EndpointTesterProps {
   id: string;

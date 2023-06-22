@@ -1,5 +1,6 @@
 import { UidGenerator } from '@/lib/core/UidGenerator';
-import { EndpointDefinition, endpointDefinitionModel } from '@/lib/workflows/endpoint/model/endpointDefinitionModel';
+import { EndpointDefinition } from '@/lib/workflows/endpoint/model/EndpointDefinition';
+import { endpointDefinitionModel } from '@/lib/workflows/endpoint/model/endpointDefinitionModel';
 import { ModelActivator } from 'sequential-workflow-editor-model';
 
 export class StartDefinitionActivator {

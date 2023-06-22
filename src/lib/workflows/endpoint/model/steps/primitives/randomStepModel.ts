@@ -4,10 +4,12 @@ import {
   ValueKnownType,
   createStepModel,
   dynamicValueModel,
+  generatedStringValueModel,
   nullableVariableValueModel,
   numberValueModel
 } from 'sequential-workflow-editor-model';
 import { Step } from 'sequential-workflow-model';
+import { StepNameFormatter } from '../../StepNameFormatter';
 
 export interface RandomStep extends Step {
   type: 'random';
@@ -20,8 +22,25 @@ export interface RandomStep extends Step {
 }
 
 export const randomStepModel = createStepModel<RandomStep>('random', 'task', step => {
+  step.label('Rand');
   step.category('Primitives');
   step.description('Random number between two numbers');
+
+  step
+    .name()
+    .dependentProperty('from')
+    .dependentProperty('to')
+    .dependentProperty('result')
+    .value(
+      generatedStringValueModel({
+        generator(context) {
+          const from = context.formatPropertyValue('from', StepNameFormatter.formatDynamic);
+          const to = context.formatPropertyValue('to', StepNameFormatter.formatDynamic);
+          const result = context.formatPropertyValue('result', StepNameFormatter.formatVariable);
+          return `${result} = Rand(${from}, ${to})`;
+        }
+      })
+    );
 
   const val = dynamicValueModel({
     models: [

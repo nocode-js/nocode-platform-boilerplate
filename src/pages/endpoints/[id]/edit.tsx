@@ -2,7 +2,7 @@ import { EndpointEditor } from '@/components/endpoint/editor/EndpointEditor';
 import { NotFound } from '@/components/notFound/NotFound';
 import { ApiClient } from '@/lib/apiClient/ApiClient';
 import { storage } from '@/lib/repositories/storage';
-import { EndpointDefinition } from '@/lib/workflows/endpoint/model/endpointDefinitionModel';
+import { EndpointDefinition } from '@/lib/workflows/endpoint/model/EndpointDefinition';
 import { InferGetServerSidePropsType } from 'next';
 import { useRouter } from 'next/router';
 

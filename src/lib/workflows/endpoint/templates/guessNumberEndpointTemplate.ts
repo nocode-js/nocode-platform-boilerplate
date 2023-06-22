@@ -14,7 +14,7 @@ const definition = () => ({
   sequence: [
     {
       id: 'ba0cd51d33e1e55e557d21b15b76a07d',
-      name: '$value = random(0, 10)',
+      name: '$value = Rand(0, 10)',
       type: 'random',
       componentType: 'task',
       properties: { result: { name: 'value' }, from: { modelId: 'number', value: 0 }, to: { modelId: 'number', value: 10 } }
@@ -28,7 +28,7 @@ const definition = () => ({
     },
     {
       id: '57b2e5df89d9cf63b0db46166aff4aae',
-      name: 'If',
+      name: '$bet === $value',
       type: 'if',
       componentType: 'switch',
       properties: {
@@ -47,7 +47,7 @@ const definition = () => ({
           },
           {
             id: '66b3d05ade748b97c016ec7fce4eceae',
-            name: "You've won!",
+            name: "$message = You've…",
             type: 'set',
             componentType: 'task',
             properties: { result: { name: 'message', type: 'string' }, value: { modelId: 'string', value: "You've won!" } }
@@ -63,7 +63,7 @@ const definition = () => ({
           },
           {
             id: 'ed87122c8151bd0ab98f71241ab5d141',
-            name: 'Try again',
+            name: '$message = Try again',
             type: 'set',
             componentType: 'task',
             properties: { result: { name: 'message', type: 'string' }, value: { modelId: 'string', value: 'Try again' } }

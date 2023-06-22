@@ -1,4 +1,4 @@
-import { EndpointDefinition } from '@/lib/workflows/endpoint/model/endpointDefinitionModel';
+import { EndpointDefinition } from '../workflows/endpoint/model/EndpointDefinition';
 
 export interface UpdateEndpointRequest {
   name: string;

@@ -1,4 +1,4 @@
-import { EndpointDefinition } from '@/lib/workflows/endpoint/model/endpointDefinitionModel';
+import { EndpointDefinition } from '@/lib/workflows/endpoint/model/EndpointDefinition';
 import { WrappedDefinition } from 'sequential-workflow-designer-react';
 
 export interface DesignTabState {

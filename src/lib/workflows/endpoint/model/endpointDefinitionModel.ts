@@ -1,19 +1,6 @@
-import {
-  VariableDefinitions,
-  createDefinitionModel,
-  createRootModel,
-  variableDefinitionsValueModel
-} from 'sequential-workflow-editor-model';
-import { Definition } from 'sequential-workflow-model';
+import { createDefinitionModel, createRootModel, variableDefinitionsValueModel } from 'sequential-workflow-editor-model';
 import { modelSet } from './modelSet';
-
-export interface EndpointDefinition extends Definition {
-  properties: {
-    inputs: VariableDefinitions;
-    internals: VariableDefinitions;
-    outputs: VariableDefinitions;
-  };
-}
+import { EndpointDefinition } from './EndpointDefinition';
 
 export const rootModel = createRootModel<EndpointDefinition>(root => {
   root

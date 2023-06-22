@@ -18,11 +18,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 18
-      - name: Pnpm Setup
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8.6.0
       - name: Install
-        run: pnpm install
+        run: npm install
       - name: Build
-        run: pnpm build
+        run: npm run build
+      - name: Prettier
+        run: npm run prettier

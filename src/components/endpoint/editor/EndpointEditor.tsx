@@ -4,11 +4,11 @@ import { EndpointPage, EndpointPageTab } from '../../theme/endpoint/EndpointPage
 import { OverviewTab } from './OverviewTab';
 import { DesignTabState, createDesignTabState } from './DesignTabState';
 import { StartDefinitionActivator } from '../StartDefinitionActivator';
-import { EndpointDefinition } from '@/lib/workflows/endpoint/model/endpointDefinitionModel';
 import { OverviewTabState, createOverviewTabState } from './OverviewTabState';
 import { createEndpointModes } from '../EndpointModes';
 import { DefaultLayout } from '@/components/layout/DefaultLayout';
 import { EndpointJSON } from '@/lib/repositories/endpoint/EndpointJSON';
+import { EndpointDefinition } from '@/lib/workflows/endpoint/model/EndpointDefinition';
 
 const DesignTab = dynamic(() => import('./DesignTab'), { ssr: false });
 

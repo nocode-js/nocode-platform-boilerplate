@@ -1,7 +1,7 @@
-import { EndpointDefinition } from '@/lib/workflows/endpoint/model/endpointDefinitionModel';
 import { UidGenerator } from '../../core/UidGenerator';
 import { EndpointValidator } from './EndpointValidator';
 import { EndpointJSON } from './EndpointJSON';
+import { EndpointDefinition } from '@/lib/workflows/endpoint/model/EndpointDefinition';
 
 export class Endpoint {
   public static create(name: string, url: string, description: string, definition: EndpointDefinition): Endpoint {

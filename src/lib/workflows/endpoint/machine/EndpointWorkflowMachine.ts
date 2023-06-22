@@ -1,11 +1,11 @@
 import { WorkflowMachineInterpreter, createWorkflowMachineBuilder } from 'sequential-workflow-machine';
 import { activitySet } from './activitySet';
-import { EndpointDefinition } from '../model/endpointDefinitionModel';
 import { EndpointWorkflowGlobalState } from './EndpointWorkflowGlobalState';
 import { LoggerService } from './services/LoggerService';
 import { VariablesService, createVariableState } from './services/VariablesService';
 import { DynamicsService } from './services/DynamicsService';
 import { EvaluatorService } from './services/EvaluatorService';
+import { EndpointDefinition } from '../model/EndpointDefinition';
 
 const builder = createWorkflowMachineBuilder(activitySet);
 

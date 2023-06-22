@@ -1,6 +1,6 @@
 import { EndpointEditor } from '@/components/endpoint/editor/EndpointEditor';
 import { ApiClient } from '@/lib/apiClient/ApiClient';
-import { EndpointDefinition } from '@/lib/workflows/endpoint/model/endpointDefinitionModel';
+import { EndpointDefinition } from '@/lib/workflows/endpoint/model/EndpointDefinition';
 import { useRouter } from 'next/router';
 
 export default function Create() {

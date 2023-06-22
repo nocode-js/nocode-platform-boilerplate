@@ -6,11 +6,13 @@ import {
   choiceValueModel,
   createBranchedStepModel,
   dynamicValueModel,
+  generatedStringValueModel,
   nullableAnyVariableValueModel,
   numberValueModel,
   stringValueModel
 } from 'sequential-workflow-editor-model';
 import { BranchedStep } from 'sequential-workflow-model';
+import { StepNameFormatter } from '../../StepNameFormatter';
 
 export interface IfStep extends BranchedStep {
   componentType: 'switch';
@@ -23,7 +25,24 @@ export interface IfStep extends BranchedStep {
 }
 
 export const ifStepModel = createBranchedStepModel<IfStep>('if', 'switch', step => {
+  step.label('If');
   step.category('Flow');
+
+  step
+    .name()
+    .dependentProperty('a')
+    .dependentProperty('comparison')
+    .dependentProperty('b')
+    .value(
+      generatedStringValueModel({
+        generator(context) {
+          const a = context.formatPropertyValue('a', StepNameFormatter.formatDynamic);
+          const comparison = context.getPropertyValue('comparison');
+          const b = context.formatPropertyValue('b', StepNameFormatter.formatDynamic);
+          return `${a} ${comparison} ${b}`;
+        }
+      })
+    );
 
   const ab = dynamicValueModel({
     models: [

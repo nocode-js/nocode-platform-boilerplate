@@ -1,5 +1,6 @@
-import { EndpointDefinition, endpointDefinitionModel } from '@/lib/workflows/endpoint/model/endpointDefinitionModel';
-import { useMemo, useRef } from 'react';
+import { endpointDefinitionModel } from '@/lib/workflows/endpoint/model/endpointDefinitionModel';
+import { EndpointDefinition } from '@/lib/workflows/endpoint/model/EndpointDefinition';
+import { useEffect, useMemo, useRef } from 'react';
 import { Uid } from 'sequential-workflow-designer';
 import { SequentialWorkflowDesigner, WrappedDefinition } from 'sequential-workflow-designer-react';
 import { EditorProvider } from 'sequential-workflow-editor';
@@ -14,11 +15,24 @@ export interface DesignTabProps {
 
 export default function DesignTab(props: DesignTabProps) {
   const isFirstChange = useRef(true);
+  const definitionRef = useRef(props.state.definition.value);
 
-  const editorProvider = useMemo(() => {
-    return EditorProvider.create<EndpointDefinition>(endpointDefinitionModel, {
+  useEffect(() => {
+    definitionRef.current = props.state.definition.value;
+  }, [props.state.definition.value]);
+
+  const editor = useMemo(() => {
+    const editorProvider = EditorProvider.create<EndpointDefinition>(endpointDefinitionModel, {
       uidGenerator: Uid.next
     });
+    return {
+      rootEditor: editorProvider.createRootEditorProvider(),
+      stepEditor: editorProvider.createStepEditorProvider(() => definitionRef.current),
+      rootValidator: editorProvider.createRootValidator(),
+      stepValidator: editorProvider.createStepValidator(),
+      stepLabelProvider: editorProvider.createStepLabelProvider(),
+      toolboxGroups: editorProvider.getToolboxGroups()
+    };
   }, []);
 
   function onChange(definition: WrappedDefinition<EndpointDefinition>) {
@@ -33,20 +47,22 @@ export default function DesignTab(props: DesignTabProps) {
   return (
     <SequentialWorkflowDesigner
       definition={props.state.definition}
-      globalEditor={editorProvider.createRootEditorProvider()}
-      stepEditor={editorProvider.createStepEditorProvider(() => props.state.definition.value)}
+      globalEditor={editor.rootEditor}
+      stepEditor={editor.stepEditor}
       validatorConfiguration={{
-        root: editorProvider.createRootValidator(),
-        step: editorProvider.createStepValidator()
+        root: editor.rootValidator,
+        step: editor.stepValidator
       }}
       controlBar={true}
       stepsConfiguration={{
-        iconUrlProvider: () => '/assets/icon-task.svg'
+        iconUrlProvider: (_, type) => `/assets/step-icons/${type}.svg`
       }}
       onDefinitionChange={onChange}
       toolboxConfiguration={{
-        groups: editorProvider.getToolboxGroups()
+        groups: editor.toolboxGroups,
+        labelProvider: editor.stepLabelProvider
       }}
+      undoStackSize={20}
     />
   );
 }

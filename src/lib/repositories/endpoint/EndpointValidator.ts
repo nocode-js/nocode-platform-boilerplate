@@ -1,4 +1,4 @@
-import { EndpointDefinition } from '@/lib/workflows/endpoint/model/endpointDefinitionModel';
+import { EndpointDefinition } from '@/lib/workflows/endpoint/model/EndpointDefinition';
 
 export class EndpointValidator {
   public static validName(name: string) {

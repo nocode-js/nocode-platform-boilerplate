@@ -35,7 +35,7 @@ const definition = () => ({
     {
       componentType: 'task',
       id: 'c0704261d1a515248182165bac3482cb',
-      name: '$height2 = $height_meters^2',
+      name: '$height2 = $height_meters * $height_meters',
       properties: {
         a: {
           modelId: 'nullableVariable',
