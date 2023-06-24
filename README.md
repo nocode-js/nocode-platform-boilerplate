@@ -2,7 +2,7 @@
 
 # NoCode API Builder Template
 
-Powerfull no-code API builder template. Clone this repo and start your no-code API builder today.
+Powerfull no-code API builder template. Clone this repo and start your no-code API builder today. The API builder allows you to create REST API endpoints using a visual editor. You may easily extend this template and add your own features.
 
 This templates uses:
 
@@ -11,6 +11,25 @@ This templates uses:
 * [🌇 Sequential Workflow Designer](https://github.com/nocode-js/sequential-workflow-designer)
 * [🚚 Sequential Workflow Machine](https://github.com/nocode-js/sequential-workflow-machine)
 * [⛽ Sequential Workflow Editor](https://github.com/nocode-js/sequential-workflow-editor)
+
+The template supports two types of storage:
+
+* `memory` - in-memory storage, used by default,
+* `mongodb` - MongoDB storage, requires `MONGODB_URI` environment variable.
+
+To choose storage type, set `STORAGE_TYPE` environment variable. You may do it by setting `.env` file:
+
+```
+STORAGE_TYPE=memory
+```
+
+or
+
+```
+STORAGE_TYPE=mongodb
+MONGODB_URI=mongodb://localhost:27017
+MONGODB_DB=nocodeApiBuilder
+```
 
 ## 🚀 Deployment
 
