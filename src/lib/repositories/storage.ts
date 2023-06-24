@@ -1,21 +1,28 @@
 import { EndpointRepository } from './endpoint/EndpointRepository';
 import { MemoryEndpointRepository } from './endpoint/MemoryEndpointRepository';
-
-const storageType = process.env.STORAGE_TYPE || 'memory';
+import { MongoEndpointRepository } from './endpoint/MongoEndpointRepository';
+import { MongoProvider } from './MongoProvider';
 
 export interface Storage {
   endpoint: EndpointRepository;
 }
 
-function getStorage(type: string): Storage {
+function getStorage(): Storage {
+  const type = process.env.STORAGE_TYPE || 'memory';
   switch (type) {
     case 'memory':
       return {
         endpoint: new MemoryEndpointRepository()
       };
+    case 'mongodb': {
+      const provider = MongoProvider.create();
+      return {
+        endpoint: new MongoEndpointRepository(provider)
+      };
+    }
     default:
-      throw new Error(`Unknown storage type: ${storageType}`);
+      throw new Error(`Unknown storage type: ${type}`);
   }
 }
 
-export const storage = getStorage(storageType);
+export const storage = getStorage();

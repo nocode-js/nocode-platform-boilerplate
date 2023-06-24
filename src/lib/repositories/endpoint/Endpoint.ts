@@ -1,7 +1,7 @@
-import { UidGenerator } from '../../core/UidGenerator';
 import { EndpointValidator } from './EndpointValidator';
 import { EndpointJSON } from './EndpointJSON';
 import { EndpointDefinition } from '@/lib/workflows/endpoint/model/EndpointDefinition';
+import { StorageIdGenerator } from '../StorageIdGenerator';
 
 export class Endpoint {
   public static create(name: string, url: string, description: string, definition: EndpointDefinition): Endpoint {
@@ -9,7 +9,7 @@ export class Endpoint {
     EndpointValidator.validUrl(url);
     EndpointValidator.validateDescription(description);
     EndpointValidator.validDefinition(definition);
-    const id = UidGenerator.next();
+    const id = StorageIdGenerator.next();
     return new Endpoint(id, name, url, description, definition);
   }
 
