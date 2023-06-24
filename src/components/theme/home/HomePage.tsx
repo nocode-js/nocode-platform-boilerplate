@@ -7,7 +7,9 @@ export function HomePage() {
         <h2 className="pt-7 pb-4 text-4xl font-bold">🔨 NoCode API Builder Template</h2>
 
         <P>
-        Powerful no-code API builder template. The API builder allows you to create REST API endpoints using a visual editor. You can request the endpoint from any HTTP client. Additionally, the template provides a simple UI to test your endpoints. You can easily extend this template and add your own features.
+          Powerful no-code API builder template. The API builder allows you to create REST API endpoints using a visual editor. You can
+          request the endpoint from any HTTP client. Additionally, the template provides a simple UI to test your endpoints. You can easily
+          extend this template and add your own features.
         </P>
         <P>
           This templates uses:
