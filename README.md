@@ -1,4 +1,4 @@
-![NoCode API Builder Template](.github/cover.png)
+![NoCode API Builder Template](.github/template-cover.png)
 
 # NoCode API Builder Template
 
