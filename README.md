@@ -2,7 +2,7 @@
 
 # NoCode API Builder Template
 
-Powerfull no-code API builder template. Clone this repo and start your no-code API builder today. The API builder allows you to create REST API endpoints using a visual editor. You may easily extend this template and add your own features.
+Powerful no-code API builder template. Clone this repo and start your no-code API builder today. The API builder allows you to create REST API endpoints using a visual editor. You can request the endpoint from any HTTP client. Additionally, the template provides a simple UI to test your endpoints. You can easily extend this template and add your own features.
 
 This templates uses:
 
@@ -37,7 +37,7 @@ To deploy this template, you need any compatible with Next.js hosting.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fnocode-js%2Fnocode-api-builder-template&project-name=nocode-api-builder&repository-name=nocode-api-builder&env=STORAGE_TYPE,MONGODB_URI)
 
-To deploy this template to Vercel you need to set `STORAGE_TYPE=mongodb` and `MONGODB_URI` environment variables. The memory storage doesn't work with cloud hosting.
+To deploy this template to Vercel you need to set `STORAGE_TYPE=mongodb` and `MONGODB_URI` environment variables. The memory storage doesn't work with cloud hosting. We recommend to use [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) for database hosting.
 
 ## 🔨 Development
 
