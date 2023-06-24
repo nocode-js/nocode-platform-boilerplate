@@ -1,7 +1,7 @@
 import { endpointDefinitionModel } from '@/lib/workflows/endpoint/model/endpointDefinitionModel';
 import { EndpointDefinition } from '@/lib/workflows/endpoint/model/EndpointDefinition';
+import { UidGenerator } from '@/lib/core/UidGenerator';
 import { useEffect, useMemo, useRef } from 'react';
-import { Uid } from 'sequential-workflow-designer';
 import { SequentialWorkflowDesigner, WrappedDefinition } from 'sequential-workflow-designer-react';
 import { EditorProvider } from 'sequential-workflow-editor';
 import { DesignTabState } from './DesignTabState';
@@ -23,7 +23,7 @@ export default function DesignTab(props: DesignTabProps) {
 
   const editor = useMemo(() => {
     const editorProvider = EditorProvider.create<EndpointDefinition>(endpointDefinitionModel, {
-      uidGenerator: Uid.next
+      uidGenerator: UidGenerator.next
     });
     return {
       rootEditor: editorProvider.createRootEditorProvider(),
