@@ -14,7 +14,7 @@ This templates uses:
 
 The template supports two types of storage:
 
-* `memory` - in-memory storage, used by default,
+* `memory` - in-memory storage, used by default, for development purposes.
 * `mongodb` - MongoDB storage, requires `MONGODB_URI` environment variable.
 
 To choose storage type, set `STORAGE_TYPE` environment variable. You may do it by setting `.env` file:
@@ -35,7 +35,9 @@ MONGODB_DB=nocodeApiBuilder
 
 To deploy this template, you need any compatible with Next.js hosting.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fnocode-js%2Fnocode-api-builder-template&project-name=nocode-api-builder&repository-name=nocode-api-builder&redirect-url=https%3A%2F%2Fnocode-js.com%2Fsequential-workflow-editor%2Fpricing)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fnocode-js%2Fnocode-api-builder-template&project-name=nocode-api-builder&repository-name=nocode-api-builder&env=STORAGE_TYPE,MONGODB_URI)
+
+To deploy this template to Vercel you need to set `STORAGE_TYPE=memory` and `MONGODB_URI` environment variables. The memory storage doesn't work with cloud hosting.
 
 ## 🔨 Development
 
