@@ -15,7 +15,7 @@ export interface OverviewTabFormProps {
 
 export function OverviewTabForm(props: OverviewTabFormProps) {
   return (
-    <div className="py-5 px-2.5">
+    <div className="py-5 px-4">
       <div className="mb-4">
         <label className="block mb-2 text-sm font-medium text-gray-900">Name *</label>
         <Input value={props.name} isInvalid={!!props.nameError} onChanged={props.onNameChanged} />

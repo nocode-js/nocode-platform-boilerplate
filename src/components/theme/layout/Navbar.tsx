@@ -24,7 +24,7 @@ export function Navbar(props: NavbarProps) {
 
   return (
     <nav className="bg-gray-800">
-      <CenteredBox className="px-2.5">
+      <CenteredBox className="px-4">
         <div className="flex py-3 items-center justify-between">
           <div className="flex items-center w-full">
             <div className="flex-shrink-0">

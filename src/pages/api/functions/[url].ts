@@ -11,7 +11,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   const url = String(req.query.url);
-  const inputs = req.body as ExecuteEndpointRequest;
+  const inputs = (req.body || req.query) as ExecuteEndpointRequest;
   if (!inputs) {
     res.status(400).json('Invalid request body');
     return;

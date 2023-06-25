@@ -39,7 +39,7 @@ export function EndpointPage(props: EndpointPageProps) {
     <div className="flex flex-col h-full">
       <div className="bg-gray-100">
         <CenteredBox className="flex flex-col w-full md:flex-row md:items-end">
-          <div className="flex items-center bg-blue-700 p-2.5 md:order-2 md:w-[300px]">
+          <div className="flex items-center bg-blue-700 py-2.5 px-[10px] md:order-2 md:w-[300px]">
             <div className="flex-1 text-white truncate">{props.name || 'Endpoint'}</div>
             <div className="flex-1 mx-2">
               <Button
@@ -56,7 +56,7 @@ export function EndpointPage(props: EndpointPageProps) {
               <Dropdown selectedIndex={modeIndex} options={props.modes.map(mode => mode.label)} onChanged={props.onModeChanged} />
             </div>
           </div>
-          <div className="md:order-1 md:flex-1 text-sm font-medium text-center text-gray-500 border-b border-gray-300/80 px-2.5">
+          <div className="md:order-1 md:flex-1 text-sm font-medium text-center text-gray-500 border-b border-gray-300/80 px-4">
             <ul className="flex flex-wrap -mb-px">
               {props.tabs.map((tab, index) => (
                 <li className="mr-2" key={tab.label}>
