@@ -5,7 +5,7 @@
 Powerful no-code API builder template. Clone this repo and start your no-code API builder today. The API builder allows you to create REST API endpoints using a visual editor. You can request the endpoint from any HTTP client. Additionally, the template provides a simple UI to test your endpoints. You can easily extend this template and add your own features.
 
 <p align="center">
-  <img width="570" height="488" src=".github/example.webp" alt="Example of NoCode API Builder">
+  <img width="570" height="488" src=".github/preview.webp" alt="Preview of NoCode API Builder">
 </p>
 
 This templates uses:
