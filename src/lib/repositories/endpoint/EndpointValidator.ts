@@ -1,4 +1,7 @@
 import { EndpointDefinition } from '@/lib/workflows/endpoint/model/EndpointDefinition';
+import { endpointDefinitionModel } from '@/lib/workflows/endpoint/model/endpointDefinitionModel';
+import { DefinitionValidator } from 'sequential-workflow-editor-model';
+import { DefinitionWalker } from 'sequential-workflow-model';
 
 export class EndpointValidator {
   public static validName(name: string) {
@@ -34,6 +37,15 @@ export class EndpointValidator {
   public static validDefinition(definition: EndpointDefinition) {
     if (!definition) {
       throw new Error('Definition is empty');
+    }
+
+    const walker = new DefinitionWalker();
+    const validator = DefinitionValidator.create(endpointDefinitionModel, walker);
+    const error = validator.validate(definition);
+    if (error) {
+      const place = error.stepId ? `Step ${error.stepId}` : 'Root';
+      const message = Object.values(error.error).join(', ');
+      throw new Error(`Definition is invalid. ${place}: ${message}`);
     }
   }
 }
