@@ -1,3 +1,5 @@
+'use client';
+
 import { endpointDefinitionModel } from '@/lib/workflows/endpoint/model/endpointDefinitionModel';
 import { EndpointDefinition } from '@/lib/workflows/endpoint/model/EndpointDefinition';
 import { UidGenerator } from '@/lib/core/UidGenerator';

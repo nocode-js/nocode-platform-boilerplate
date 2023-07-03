@@ -1,7 +1,7 @@
 import { CenteredBox } from '../layout/CenteredBox';
 import { Button } from '../primitives/Button';
 
-export interface EndpointListPageProps {
+export interface EndpointListProps {
   createUrl: string;
   onDeleteClicked: (id: string) => void;
   endpoints: {
@@ -14,7 +14,7 @@ export interface EndpointListPageProps {
   }[];
 }
 
-export function EndpointListPage(props: EndpointListPageProps) {
+export function EndpointList(props: EndpointListProps) {
   return (
     <CenteredBox>
       <div className="bg-gray-100 px-4 pt-5 pb-3 border-b border-gray-300/80 rounded-b-md">

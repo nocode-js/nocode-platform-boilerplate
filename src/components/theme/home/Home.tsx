@@ -1,6 +1,6 @@
 import { CenteredBox } from '../layout/CenteredBox';
 
-export function HomePage() {
+export function Home() {
   return (
     <CenteredBox>
       <div className="text-center px-5">

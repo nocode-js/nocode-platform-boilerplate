@@ -1,12 +1,13 @@
+'use client';
+
 import dynamic from 'next/dynamic';
 import { useMemo, useRef, useState } from 'react';
-import { EndpointPage, EndpointPageTab } from '../../theme/endpoint/EndpointPage';
+import { EndpointTab, EndpointTabHost } from '../../theme/endpoint/EndpointTabHost';
 import { OverviewTab } from './OverviewTab';
 import { DesignTabState, createDesignTabState } from './DesignTabState';
 import { StartDefinitionActivator } from '../StartDefinitionActivator';
 import { OverviewTabState, createOverviewTabState } from './OverviewTabState';
 import { createEndpointModes } from '../EndpointModes';
-import { DefaultLayout } from '@/components/layout/DefaultLayout';
 import { EndpointJSON } from '@/lib/repositories/endpoint/EndpointJSON';
 import { EndpointDefinition } from '@/lib/workflows/endpoint/model/EndpointDefinition';
 
@@ -39,7 +40,7 @@ export function EndpointEditor(props: EndpointEditorProps) {
 
   const modes = useMemo(() => createEndpointModes('edit', isNewMode), [isNewMode]);
   const [currentTab, setCurrentTab] = useState<string>(isNewMode ? 'overview' : 'design');
-  const tabs = useMemo<EndpointPageTab[]>(
+  const tabs = useMemo<EndpointTab[]>(
     () => [
       {
         label: 'Overview',
@@ -99,20 +100,18 @@ export function EndpointEditor(props: EndpointEditorProps) {
   }
 
   return (
-    <DefaultLayout title="Edit endpoint">
-      <EndpointPage
-        name={state.overview.name}
-        modes={modes}
-        onModeChanged={onModeChanged}
-        tabs={tabs}
-        onTabClicked={onTabClicked}
-        primaryButtonLabel="Save"
-        isPrimaryButtonDisabled={!canSave}
-        onPrimaryButtonClicked={onSaveClicked}
-      >
-        {currentTab === 'overview' && <OverviewTab state={state.overview} onStateChanged={onOverviewStateChanged} />}
-        {currentTab === 'design' && <DesignTab state={state.design} onStateChanged={onDesignStateChange} />}
-      </EndpointPage>
-    </DefaultLayout>
+    <EndpointTabHost
+      name={state.overview.name}
+      modes={modes}
+      onModeChanged={onModeChanged}
+      tabs={tabs}
+      onTabClicked={onTabClicked}
+      primaryButtonLabel="Save"
+      isPrimaryButtonDisabled={!canSave}
+      onPrimaryButtonClicked={onSaveClicked}
+    >
+      {currentTab === 'overview' && <OverviewTab state={state.overview} onStateChanged={onOverviewStateChanged} />}
+      {currentTab === 'design' && <DesignTab state={state.design} onStateChanged={onDesignStateChange} />}
+    </EndpointTabHost>
   );
 }

@@ -1,9 +1,11 @@
+'use client';
+
 import { EndpointEditor } from '@/components/endpoint/editor/EndpointEditor';
 import { ApiClient } from '@/lib/apiClient/ApiClient';
 import { EndpointDefinition } from '@/lib/workflows/endpoint/model/EndpointDefinition';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
-export default function Create() {
+export function CreateEndpointPage() {
   const router = useRouter();
 
   function onModeChanged(modeId: string) {
@@ -20,7 +22,7 @@ export default function Create() {
       definition
     });
 
-    await router.push(`/endpoints/${id}/edit`);
+    router.push(`/endpoints/${id}/edit`);
   }
 
   return <EndpointEditor onModeChanged={onModeChanged} onSave={onSave} />;

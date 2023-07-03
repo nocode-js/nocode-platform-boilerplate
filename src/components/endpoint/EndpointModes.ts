@@ -1,8 +1,8 @@
-import { EndpointPageMode } from '../theme/endpoint/EndpointPage';
+import { EndpointTabHostMode } from '../theme/endpoint/EndpointTabHost';
 
 export type EndpointMode = 'edit' | 'test';
 
-export function createEndpointModes(current: EndpointMode, isNewMode: boolean): EndpointPageMode[] {
+export function createEndpointModes(current: EndpointMode, isNewMode: boolean): EndpointTabHostMode[] {
   return [
     {
       id: 'edit',

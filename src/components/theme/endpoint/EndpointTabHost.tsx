@@ -2,32 +2,32 @@ import { CenteredBox } from '../layout/CenteredBox';
 import { Button } from '../primitives/Button';
 import { Dropdown } from '../primitives/Dropdown';
 
-export interface EndpointPageMode {
+export interface EndpointTabHostMode {
   id: string;
   label: string;
   isSelected: boolean;
 }
 
-export interface EndpointPageTab {
+export interface EndpointTab {
   label: string;
   isSelected: boolean;
   isDirty: boolean;
   isValid: boolean;
 }
 
-export interface EndpointPageProps {
+export interface EndpointTabHostProps {
   name: string;
-  modes: EndpointPageMode[];
+  modes: EndpointTabHostMode[];
   onModeChanged: (index: number) => void;
   children: React.ReactNode;
-  tabs: EndpointPageTab[];
+  tabs: EndpointTab[];
   onTabClicked: (index: number) => void;
   primaryButtonLabel?: string;
   isPrimaryButtonDisabled?: boolean;
   onPrimaryButtonClicked?: () => void;
 }
 
-export function EndpointPage(props: EndpointPageProps) {
+export function EndpointTabHost(props: EndpointTabHostProps) {
   const modeIndex = props.modes.findIndex(mode => mode.isSelected);
 
   function onTabClicked(e: React.MouseEvent, index: number) {

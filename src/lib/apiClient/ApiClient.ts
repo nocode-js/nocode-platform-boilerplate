@@ -45,8 +45,10 @@ async function httpRequest(url: string, options: RequestInit): Promise<any> {
     let error: string | null = null;
     try {
       const json = await response.json();
-      if (json['error']) {
+      if (typeof json === 'object' && json['error']) {
         error = json['error'];
+      } else if (typeof json === 'string') {
+        error = json;
       }
     } catch (e) {}
     throw new Error(error || 'Unknown error');

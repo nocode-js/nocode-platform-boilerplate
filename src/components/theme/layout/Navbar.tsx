@@ -1,5 +1,7 @@
+'use client';
+
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { CenteredBox } from './CenteredBox';
 import { useState } from 'react';
 import Image from 'next/image';
@@ -7,7 +9,7 @@ import Image from 'next/image';
 export interface NavItem {
   label: string;
   href: string;
-  children?: RegExp;
+  children?: string[];
 }
 
 export interface NavbarProps {
@@ -15,7 +17,7 @@ export interface NavbarProps {
 }
 
 export function Navbar(props: NavbarProps) {
-  const router = useRouter();
+  const pathname = usePathname();
   const [isOpened, setIsOpened] = useState(false);
 
   function toggleMenu() {
@@ -37,11 +39,11 @@ export function Navbar(props: NavbarProps) {
                     key={item.label}
                     href={item.href}
                     className={
-                      router.pathname === item.href || item.children?.test(router.pathname)
+                      pathname === item.href || item.children?.some(c => pathname.startsWith(c))
                         ? 'bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium'
                         : 'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'
                     }
-                    aria-current={router.pathname === item.href ? 'page' : undefined}
+                    aria-current={pathname === item.href ? 'page' : undefined}
                   >
                     {item.label}
                   </Link>
@@ -77,11 +79,11 @@ export function Navbar(props: NavbarProps) {
                 key={item.label}
                 href={item.href}
                 className={
-                  router.pathname === item.href
+                  pathname === item.href
                     ? 'bg-gray-900 text-white block rounded-md px-2.5 py-2'
                     : 'text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-2.5 py-2'
                 }
-                aria-current={router.pathname === item.href ? 'page' : undefined}
+                aria-current={pathname === item.href ? 'page' : undefined}
               >
                 {item.label}
               </Link>

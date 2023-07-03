@@ -11,10 +11,7 @@ export const httpRequestActivity = createAtomActivity<HttpRequestStep, EndpointW
     }
 
     const url = $richText.evaluateUrl(step.properties.url);
-    const response = await fetch(url, {
-      method: step.properties.method
-    });
-    const text = await response.text();
+    const text = await httpRequest(step.properties.method, url);
 
     $logger.log(`Downloaded ${text.length} bytes from ${url}`);
 
@@ -33,3 +30,14 @@ export const httpRequestActivity = createAtomActivity<HttpRequestStep, EndpointW
     $variables.set(step.properties.response.name, value);
   }
 });
+
+async function httpRequest(method: string, url: string) {
+  const response = await fetch(url, {
+    method,
+    cache: 'no-cache'
+  });
+  if (response.status !== 200) {
+    throw new Error(`Request failed with status ${response.status}`);
+  }
+  return response.text();
+}

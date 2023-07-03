@@ -1,3 +1,5 @@
+'use client';
+
 import { TestTabForm, TestTabFormInput } from '@/components/theme/endpoint/TestTabForm';
 import { UserInputParser } from '@/lib/workflows/UserInputParser';
 import { VariableDefinitions } from 'sequential-workflow-editor-model';

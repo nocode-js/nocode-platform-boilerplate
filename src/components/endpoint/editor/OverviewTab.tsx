@@ -1,3 +1,5 @@
+'use client';
+
 import { OverviewTabForm } from '@/components/theme/endpoint/OverviewTabForm';
 import { OverviewTabState, validateOverviewTabState } from './OverviewTabState';
 
