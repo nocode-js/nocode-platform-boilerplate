@@ -45,6 +45,12 @@ To deploy this template to Vercel you need to set `STORAGE_TYPE=mongodb` and `MO
 
 ## 🔨 Development
 
+You can work with NPM but we recommend to use [pnpm](https://pnpm.io/):
+
+```bash
+npm install -g pnpm
+```
+
 Clone this repository:
 
 ```bash
@@ -55,13 +61,13 @@ cd nocode-api-builder-template
 Install dependencies:
 
 ```bash
-npm install
+pnpm install
 ```
 
 Start the development server:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 ## 💡 License
