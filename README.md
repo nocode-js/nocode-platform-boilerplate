@@ -72,6 +72,4 @@ pnpm dev
 
 ## 💡 License
 
-This template is released under the MIT license. You can use the template for free for any personal or commercial project. But you should note that, **this template uses one dependency that requires a license for commercial use**:
-
-* [⛽ Sequential Workflow Editor](https://github.com/nocode-js/sequential-workflow-editor) - check the [license](https://nocode-js.com/sequential-workflow-editor/license) and the [pricing](https://nocode-js.com/sequential-workflow-editor/pricing).
+This template is released under the MIT license.

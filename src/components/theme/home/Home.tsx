@@ -28,15 +28,7 @@ export function Home() {
 
         <h4 className="pt-7 pb-4 text-2xl font-bold">💡 License</h4>
 
-        <P>
-          This template is released under the MIT license. You can use the template for free for any personal or commercial project. But you
-          should note that, this template uses one dependency that requires a license for commercial use:
-        </P>
-        <P>
-          <Link href="https://github.com/nocode-js/sequential-workflow-editor">⛽ Sequential Workflow Editor</Link>- check the{' '}
-          <Link href="https://nocode-js.com/sequential-workflow-editor/license">license</Link> and the{' '}
-          <Link href="https://nocode-js.com/sequential-workflow-editor/pricing">pricing</Link>.
-        </P>
+        <P>This template is released under the MIT license.</P>
 
         <h4 className="pt-7 pb-4 text-2xl font-bold">🤩 Links</h4>
 
