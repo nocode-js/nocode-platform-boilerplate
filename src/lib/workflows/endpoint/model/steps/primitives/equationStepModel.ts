@@ -1,7 +1,7 @@
 import {
   Dynamic,
   NullableVariable,
-  ValueKnownType,
+  WellKnownValueType,
   choiceValueModel,
   createStepModel,
   dynamicValueModel,
@@ -51,14 +51,14 @@ export const equationStepModel = createStepModel<EquationStep>('equation', 'task
       numberValueModel({}),
       nullableVariableValueModel({
         isRequired: true,
-        valueType: ValueKnownType.number
+        valueType: WellKnownValueType.number
       })
     ]
   });
 
   step.property('result').value(
     nullableVariableValueModel({
-      valueType: ValueKnownType.number,
+      valueType: WellKnownValueType.number,
       isRequired: true
     })
   );

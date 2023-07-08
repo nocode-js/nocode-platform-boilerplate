@@ -1,7 +1,7 @@
 import {
   Dynamic,
   NullableVariable,
-  ValueKnownType,
+  WellKnownValueType,
   createStepModel,
   dynamicValueModel,
   generatedStringValueModel,
@@ -47,14 +47,14 @@ export const randomStepModel = createStepModel<RandomStep>('random', 'task', ste
       numberValueModel({}),
       nullableVariableValueModel({
         isRequired: true,
-        valueType: ValueKnownType.number
+        valueType: WellKnownValueType.number
       })
     ]
   });
 
   step.property('result').value(
     nullableVariableValueModel({
-      valueType: ValueKnownType.number,
+      valueType: WellKnownValueType.number,
       isRequired: true
     })
   );

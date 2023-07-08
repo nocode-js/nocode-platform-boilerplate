@@ -29,7 +29,7 @@ export default function DesignTab(props: DesignTabProps) {
     });
     return {
       rootEditor: editorProvider.createRootEditorProvider(),
-      stepEditor: editorProvider.createStepEditorProvider(() => definitionRef.current),
+      stepEditor: editorProvider.createStepEditorProvider(),
       rootValidator: editorProvider.createRootValidator(),
       stepValidator: editorProvider.createStepValidator(),
       stepLabelProvider: editorProvider.createStepLabelProvider(),
