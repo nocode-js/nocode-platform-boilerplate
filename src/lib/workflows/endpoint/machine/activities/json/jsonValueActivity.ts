@@ -2,8 +2,7 @@ import { createAtomActivity } from 'sequential-workflow-machine';
 import { JsonValueStep } from '../../../model/steps/json/jsonValueStepModel';
 import { EndpointWorkflowGlobalState } from '../../EndpointWorkflowGlobalState';
 
-export const jsonValueActivity = createAtomActivity<JsonValueStep, EndpointWorkflowGlobalState>({
-  stepType: 'jsonValue',
+export const jsonValueActivity = createAtomActivity<JsonValueStep, EndpointWorkflowGlobalState>('jsonValue', {
   init: () => ({}),
   handler: async (step: JsonValueStep, { $variables, $evaluator: $richText }: EndpointWorkflowGlobalState) => {
     if (!step.properties.json || !step.properties.output) {

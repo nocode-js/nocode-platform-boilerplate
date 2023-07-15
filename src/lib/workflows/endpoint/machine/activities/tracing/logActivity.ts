@@ -3,9 +3,8 @@ import { EndpointWorkflowGlobalState } from '../../EndpointWorkflowGlobalState';
 import { LogStep } from '../../../model/steps/tracing/logStepModel';
 import { formatVariableName } from 'sequential-workflow-editor';
 
-export const logActivity = createAtomActivity<LogStep, EndpointWorkflowGlobalState>({
+export const logActivity = createAtomActivity<LogStep, EndpointWorkflowGlobalState>('log', {
   init: () => ({}),
-  stepType: 'log',
   handler: async (step: LogStep, { $variables, $dynamics, $logger }: EndpointWorkflowGlobalState) => {
     let message = $dynamics.readAny(step.properties.message);
 

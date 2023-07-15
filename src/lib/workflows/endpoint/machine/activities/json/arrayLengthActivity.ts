@@ -2,8 +2,7 @@ import { createAtomActivity } from 'sequential-workflow-machine';
 import { EndpointWorkflowGlobalState } from '../../EndpointWorkflowGlobalState';
 import { ArrayLengthStep } from '../../../model/steps/json/arrayLengthStepModel';
 
-export const arrayLengthActivity = createAtomActivity<ArrayLengthStep, EndpointWorkflowGlobalState>({
-  stepType: 'arrayLength',
+export const arrayLengthActivity = createAtomActivity<ArrayLengthStep, EndpointWorkflowGlobalState>('arrayLength', {
   init: () => ({}),
   handler: async (step: ArrayLengthStep, { $variables, $evaluator: $richText }: EndpointWorkflowGlobalState) => {
     if (!step.properties.json || !step.properties.output) {

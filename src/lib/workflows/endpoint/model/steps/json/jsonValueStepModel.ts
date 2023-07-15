@@ -1,9 +1,9 @@
 import {
   NullableAnyVariable,
   createStepModel,
-  generatedStringValueModel,
-  nullableAnyVariableValueModel,
-  stringValueModel
+  createGeneratedStringValueModel,
+  createNullableAnyVariableValueModel,
+  createStringValueModel
 } from 'sequential-workflow-editor-model';
 import { Step } from 'sequential-workflow-model';
 import { StepNameFormatter } from '../../StepNameFormatter';
@@ -28,7 +28,7 @@ export const jsonValueStepModel = createStepModel<JsonValueStep>('jsonValue', 't
     .dependentProperty('path')
     .dependentProperty('output')
     .value(
-      generatedStringValueModel({
+      createGeneratedStringValueModel({
         generator(context) {
           const json = context.formatPropertyValue('json', StepNameFormatter.formatVariable);
           const path = context.formatPropertyValue('path', StepNameFormatter.createStringFormatter(8));
@@ -41,7 +41,7 @@ export const jsonValueStepModel = createStepModel<JsonValueStep>('jsonValue', 't
   step
     .property('json')
     .value(
-      nullableAnyVariableValueModel({
+      createNullableAnyVariableValueModel({
         valueTypes: ['json'],
         isRequired: true
       })
@@ -51,7 +51,7 @@ export const jsonValueStepModel = createStepModel<JsonValueStep>('jsonValue', 't
   step
     .property('path')
     .value(
-      stringValueModel({
+      createStringValueModel({
         minLength: 1
       })
     )
@@ -60,7 +60,7 @@ export const jsonValueStepModel = createStepModel<JsonValueStep>('jsonValue', 't
   step
     .property('output')
     .value(
-      nullableAnyVariableValueModel({
+      createNullableAnyVariableValueModel({
         valueTypes: ['string', 'number'],
         isRequired: true
       })

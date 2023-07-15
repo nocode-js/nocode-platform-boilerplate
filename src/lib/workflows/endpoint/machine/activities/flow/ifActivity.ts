@@ -2,8 +2,7 @@ import { branchName, createForkActivity } from 'sequential-workflow-machine';
 import { EndpointWorkflowGlobalState } from '../../EndpointWorkflowGlobalState';
 import { IfStep } from '../../../model/steps/flow/ifStepModel';
 
-export const ifActivity = createForkActivity<IfStep, EndpointWorkflowGlobalState>({
-  stepType: 'if',
+export const ifActivity = createForkActivity<IfStep, EndpointWorkflowGlobalState>('if', {
   init: () => ({}),
   handler: async (step: IfStep, { $dynamics }: EndpointWorkflowGlobalState) => {
     const a = $dynamics.readAny<any>(step.properties.a);

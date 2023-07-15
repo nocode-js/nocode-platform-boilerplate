@@ -7,8 +7,7 @@ interface ForLoopActivityState {
   isFirstEnter: boolean | null;
 }
 
-export const forActivity = createLoopActivity<ForStep, EndpointWorkflowGlobalState, ForLoopActivityState>({
-  stepType: 'for',
+export const forActivity = createLoopActivity<ForStep, EndpointWorkflowGlobalState, ForLoopActivityState>('for', {
   loopName: step => `FOR.${step.id}`,
   init: ({ properties }: ForStep) => {
     if (!properties.indexVariable) {

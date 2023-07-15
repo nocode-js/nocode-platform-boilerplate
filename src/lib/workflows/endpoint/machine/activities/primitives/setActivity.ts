@@ -2,8 +2,7 @@ import { createAtomActivity } from 'sequential-workflow-machine';
 import { EndpointWorkflowGlobalState } from '../../EndpointWorkflowGlobalState';
 import { SetStep } from '../../../model/steps/primitives/setStepModel';
 
-export const setActivity = createAtomActivity<SetStep, EndpointWorkflowGlobalState>({
-  stepType: 'set',
+export const setActivity = createAtomActivity<SetStep, EndpointWorkflowGlobalState>('set', {
   init: () => ({}),
   handler: async ({ properties }: SetStep, { $dynamics, $variables }: EndpointWorkflowGlobalState) => {
     if (!properties.result) {

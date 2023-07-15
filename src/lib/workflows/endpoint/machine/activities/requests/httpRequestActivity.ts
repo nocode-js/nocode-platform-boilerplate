@@ -2,8 +2,7 @@ import { createAtomActivity } from 'sequential-workflow-machine';
 import { HttpRequestStep } from '../../../model/steps/requests/httpRequestStepModel';
 import { EndpointWorkflowGlobalState } from '../../EndpointWorkflowGlobalState';
 
-export const httpRequestActivity = createAtomActivity<HttpRequestStep, EndpointWorkflowGlobalState>({
-  stepType: 'httpRequest',
+export const httpRequestActivity = createAtomActivity<HttpRequestStep, EndpointWorkflowGlobalState>('httpRequest', {
   init: () => ({}),
   handler: async (step: HttpRequestStep, { $logger, $variables, $evaluator: $richText }: EndpointWorkflowGlobalState) => {
     if (!step.properties.response) {

@@ -3,10 +3,10 @@ import {
   NullableVariable,
   WellKnownValueType,
   createStepModel,
-  dynamicValueModel,
-  generatedStringValueModel,
-  nullableVariableValueModel,
-  numberValueModel
+  createDynamicValueModel,
+  createGeneratedStringValueModel,
+  createNullableVariableValueModel,
+  createNumberValueModel
 } from 'sequential-workflow-editor-model';
 import { Step } from 'sequential-workflow-model';
 import { StepNameFormatter } from '../../StepNameFormatter';
@@ -32,7 +32,7 @@ export const randomStepModel = createStepModel<RandomStep>('random', 'task', ste
     .dependentProperty('to')
     .dependentProperty('result')
     .value(
-      generatedStringValueModel({
+      createGeneratedStringValueModel({
         generator(context) {
           const from = context.formatPropertyValue('from', StepNameFormatter.formatDynamic);
           const to = context.formatPropertyValue('to', StepNameFormatter.formatDynamic);
@@ -42,10 +42,10 @@ export const randomStepModel = createStepModel<RandomStep>('random', 'task', ste
       })
     );
 
-  const val = dynamicValueModel({
+  const val = createDynamicValueModel({
     models: [
-      numberValueModel({}),
-      nullableVariableValueModel({
+      createNumberValueModel({}),
+      createNullableVariableValueModel({
         isRequired: true,
         valueType: WellKnownValueType.number
       })
@@ -53,7 +53,7 @@ export const randomStepModel = createStepModel<RandomStep>('random', 'task', ste
   });
 
   step.property('result').value(
-    nullableVariableValueModel({
+    createNullableVariableValueModel({
       valueType: WellKnownValueType.number,
       isRequired: true
     })

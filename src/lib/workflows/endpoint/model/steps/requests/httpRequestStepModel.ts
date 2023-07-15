@@ -1,10 +1,10 @@
 import {
   NullableAnyVariable,
-  choiceValueModel,
+  createChoiceValueModel,
   createStepModel,
-  generatedStringValueModel,
-  nullableAnyVariableValueModel,
-  stringValueModel
+  createGeneratedStringValueModel,
+  createNullableAnyVariableValueModel,
+  createStringValueModel
 } from 'sequential-workflow-editor-model';
 import { Step } from 'sequential-workflow-model';
 import { StepNameFormatter } from '../../StepNameFormatter';
@@ -29,7 +29,7 @@ export const httpRequestStepModel = createStepModel<HttpRequestStep>('httpReques
     .dependentProperty('response')
     .dependentProperty('url')
     .value(
-      generatedStringValueModel({
+      createGeneratedStringValueModel({
         generator(context) {
           const method = context.getPropertyValue('method');
           const urlRaw = context.getPropertyValue('url');
@@ -45,14 +45,14 @@ export const httpRequestStepModel = createStepModel<HttpRequestStep>('httpReques
     );
 
   step.property('method').value(
-    choiceValueModel({
+    createChoiceValueModel({
       choices: ['GET', 'POST'],
       defaultValue: 'GET'
     })
   );
 
   step.property('url').value(
-    stringValueModel({
+    createStringValueModel({
       minLength: 1
     })
   );
@@ -60,7 +60,7 @@ export const httpRequestStepModel = createStepModel<HttpRequestStep>('httpReques
   step
     .property('response')
     .value(
-      nullableAnyVariableValueModel({
+      createNullableAnyVariableValueModel({
         valueTypes: ['string', 'json'],
         isRequired: true
       })

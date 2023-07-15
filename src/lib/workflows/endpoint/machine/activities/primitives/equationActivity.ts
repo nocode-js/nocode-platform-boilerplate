@@ -2,9 +2,8 @@ import { createAtomActivity } from 'sequential-workflow-machine';
 import { EquationStep } from '../../../model/steps/primitives/equationStepModel';
 import { EndpointWorkflowGlobalState } from '../../EndpointWorkflowGlobalState';
 
-export const equationActivity = createAtomActivity<EquationStep, EndpointWorkflowGlobalState>({
+export const equationActivity = createAtomActivity<EquationStep, EndpointWorkflowGlobalState>('equation', {
   init: () => ({}),
-  stepType: 'equation',
   handler: async (step: EquationStep, { $variables, $dynamics }: EndpointWorkflowGlobalState) => {
     if (!step.properties.result) {
       throw new Error('Result variable is not defined');

@@ -2,13 +2,12 @@ import {
   Dynamic,
   NullableVariable,
   NullableVariableDefinition,
-  VariableDefinition,
   createSequentialStepModel,
-  dynamicValueModel,
-  generatedStringValueModel,
-  nullableVariableDefinitionValueModel,
-  nullableVariableValueModel,
-  numberValueModel
+  createDynamicValueModel,
+  createGeneratedStringValueModel,
+  createNullableVariableDefinitionValueModel,
+  createNullableVariableValueModel,
+  createNumberValueModel
 } from 'sequential-workflow-editor-model';
 import { SequentialStep } from 'sequential-workflow-model';
 import { StepNameFormatter } from '../../StepNameFormatter';
@@ -34,7 +33,7 @@ export const forStepModel = createSequentialStepModel<ForStep>('for', 'container
     .dependentProperty('to')
     .dependentProperty('delta')
     .value(
-      generatedStringValueModel({
+      createGeneratedStringValueModel({
         generator(context) {
           const from = context.formatPropertyValue('from', StepNameFormatter.formatDynamic);
           const to = context.formatPropertyValue('to', StepNameFormatter.formatDynamic);
@@ -44,13 +43,13 @@ export const forStepModel = createSequentialStepModel<ForStep>('for', 'container
       })
     );
 
-  const val = dynamicValueModel({
+  const val = createDynamicValueModel({
     models: [
-      nullableVariableValueModel({
+      createNullableVariableValueModel({
         isRequired: true,
         valueType: 'number'
       }),
-      numberValueModel({})
+      createNumberValueModel({})
     ]
   });
 
@@ -59,7 +58,7 @@ export const forStepModel = createSequentialStepModel<ForStep>('for', 'container
   step.property('delta').value(val);
 
   step.property('indexVariable').value(
-    nullableVariableDefinitionValueModel({
+    createNullableVariableDefinitionValueModel({
       valueType: 'number',
       defaultValue: {
         name: 'index',

@@ -1,15 +1,15 @@
 import {
   Dynamic,
   NullableAnyVariable,
-  booleanValueModel,
-  branchesValueModel,
-  choiceValueModel,
+  createBooleanValueModel,
+  createBranchesValueModel,
+  createChoiceValueModel,
   createBranchedStepModel,
-  dynamicValueModel,
-  generatedStringValueModel,
-  nullableAnyVariableValueModel,
-  numberValueModel,
-  stringValueModel
+  createDynamicValueModel,
+  createGeneratedStringValueModel,
+  createNullableAnyVariableValueModel,
+  createNumberValueModel,
+  createStringValueModel
 } from 'sequential-workflow-editor-model';
 import { BranchedStep } from 'sequential-workflow-model';
 import { StepNameFormatter } from '../../StepNameFormatter';
@@ -34,7 +34,7 @@ export const ifStepModel = createBranchedStepModel<IfStep>('if', 'switch', step 
     .dependentProperty('comparison')
     .dependentProperty('b')
     .value(
-      generatedStringValueModel({
+      createGeneratedStringValueModel({
         generator(context) {
           const a = context.formatPropertyValue('a', StepNameFormatter.formatDynamic);
           const comparison = context.getPropertyValue('comparison');
@@ -44,27 +44,27 @@ export const ifStepModel = createBranchedStepModel<IfStep>('if', 'switch', step 
       })
     );
 
-  const ab = dynamicValueModel({
+  const ab = createDynamicValueModel({
     models: [
-      nullableAnyVariableValueModel({
+      createNullableAnyVariableValueModel({
         isRequired: true,
         valueTypes: ['string', 'number', 'boolean']
       }),
-      stringValueModel({}),
-      numberValueModel({}),
-      booleanValueModel({})
+      createStringValueModel({}),
+      createNumberValueModel({}),
+      createBooleanValueModel({})
     ]
   });
   step.property('a').value(ab);
   step.property('comparison').value(
-    choiceValueModel({
+    createChoiceValueModel({
       choices: ['==', '===', '!=', '!==', '>', '<', '>=', '<='],
       defaultValue: '=='
     })
   );
   step.property('b').value(ab);
   step.branches().value(
-    branchesValueModel({
+    createBranchesValueModel({
       branches: {
         true: [],
         false: []

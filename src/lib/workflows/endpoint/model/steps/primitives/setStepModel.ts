@@ -1,13 +1,13 @@
 import {
   Dynamic,
   NullableAnyVariable,
-  booleanValueModel,
+  createBooleanValueModel,
   createStepModel,
-  dynamicValueModel,
-  generatedStringValueModel,
-  nullableAnyVariableValueModel,
-  numberValueModel,
-  stringValueModel
+  createDynamicValueModel,
+  createGeneratedStringValueModel,
+  createNullableAnyVariableValueModel,
+  createNumberValueModel,
+  createStringValueModel
 } from 'sequential-workflow-editor-model';
 import { Step } from 'sequential-workflow-model';
 import { StepNameFormatter } from '../../StepNameFormatter';
@@ -31,7 +31,7 @@ export const setStepModel = createStepModel<SetStep>('set', 'task', step => {
     .dependentProperty('result')
     .dependentProperty('value')
     .value(
-      generatedStringValueModel({
+      createGeneratedStringValueModel({
         generator(context) {
           const result = context.formatPropertyValue('result', StepNameFormatter.formatVariable);
           const value = context.formatPropertyValue('value', StepNameFormatter.formatDynamic);
@@ -41,20 +41,20 @@ export const setStepModel = createStepModel<SetStep>('set', 'task', step => {
     );
 
   step.property('result').value(
-    nullableAnyVariableValueModel({
+    createNullableAnyVariableValueModel({
       isRequired: true
     })
   );
 
   step.property('value').value(
-    dynamicValueModel({
+    createDynamicValueModel({
       models: [
-        nullableAnyVariableValueModel({
+        createNullableAnyVariableValueModel({
           isRequired: true
         }),
-        stringValueModel({}),
-        numberValueModel({}),
-        booleanValueModel({})
+        createStringValueModel({}),
+        createNumberValueModel({}),
+        createBooleanValueModel({})
       ]
     })
   );

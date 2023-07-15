@@ -2,11 +2,11 @@ import {
   AnyVariables,
   Dynamic,
   NullableVariable,
-  anyVariablesValueModel,
+  createAnyVariablesValueModel,
   createStepModel,
-  dynamicValueModel,
-  nullableVariableValueModel,
-  stringValueModel
+  createDynamicValueModel,
+  createNullableVariableValueModel,
+  createStringValueModel
 } from 'sequential-workflow-editor-model';
 import { Step } from 'sequential-workflow-model';
 
@@ -25,10 +25,10 @@ export const logStepModel = createStepModel<LogStep>('log', 'task', step => {
   step
     .property('message')
     .value(
-      dynamicValueModel({
+      createDynamicValueModel({
         models: [
-          stringValueModel({}),
-          nullableVariableValueModel({
+          createStringValueModel({}),
+          createNullableVariableValueModel({
             isRequired: true,
             valueType: 'string'
           })
@@ -37,5 +37,5 @@ export const logStepModel = createStepModel<LogStep>('log', 'task', step => {
     )
     .label('Text');
 
-  step.property('variables').value(anyVariablesValueModel({})).label('Log variables');
+  step.property('variables').value(createAnyVariablesValueModel({})).label('Log variables');
 });
