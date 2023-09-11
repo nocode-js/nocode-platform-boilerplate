@@ -39,11 +39,11 @@ dependencies:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
   sequential-workflow-designer:
-    specifier: ^0.14.1
-    version: 0.14.1(sequential-workflow-model@0.2.0)
+    specifier: ^0.15.3
+    version: 0.15.3(sequential-workflow-model@0.2.0)
   sequential-workflow-designer-react:
-    specifier: ^0.14.1
-    version: 0.14.1(react-dom@18.2.0)(react@18.2.0)(sequential-workflow-designer@0.14.1)
+    specifier: ^0.15.3
+    version: 0.15.3(react-dom@18.2.0)(react@18.2.0)(sequential-workflow-designer@0.15.3)
   sequential-workflow-editor:
     specifier: ^0.8.0
     version: 0.8.0(sequential-workflow-editor-model@0.8.0)(sequential-workflow-model@0.2.0)
@@ -2383,20 +2383,20 @@ packages:
       lru-cache: 6.0.0
     dev: false
 
-  /sequential-workflow-designer-react@0.14.1(react-dom@18.2.0)(react@18.2.0)(sequential-workflow-designer@0.14.1):
-    resolution: {integrity: sha512-NV7xp/jwtgKBWxzN4BRPZLVROLyZEmY/lVyBqmDk6bJR+S32L8K8BhIHQyAp/ANHzqmSZVtvBn+lrzMZ8MVKGQ==}
+  /sequential-workflow-designer-react@0.15.3(react-dom@18.2.0)(react@18.2.0)(sequential-workflow-designer@0.15.3):
+    resolution: {integrity: sha512-1rPjjFoj88nk4JEolawry7smtDn18DfxTRTHqoFTJ9civK3Z40+kCduQJ6OngBV7a+YZeFI2ZtEGvYQxiReIaw==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
-      sequential-workflow-designer: ^0.14.1
+      sequential-workflow-designer: ^0.15.3
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      sequential-workflow-designer: 0.14.1(sequential-workflow-model@0.2.0)
+      sequential-workflow-designer: 0.15.3(sequential-workflow-model@0.2.0)
     dev: false
 
-  /sequential-workflow-designer@0.14.1(sequential-workflow-model@0.2.0):
-    resolution: {integrity: sha512-wPgNKnl/4q4QMbYqn19O9On6eYf/MXzityXAFmzo/WQBAl6RJhclY4LmL8HxotdkcGSQznW80E3gOpNERZCdLw==}
+  /sequential-workflow-designer@0.15.3(sequential-workflow-model@0.2.0):
+    resolution: {integrity: sha512-/awAymgzuQ9ycDfJmEW6z8B2rS5m95/r+XHkCvDYx49OtH5/TavaJDnAU2P4CD1yL6Vkg1YapPPn+6JWlwUFbg==}
     peerDependencies:
       sequential-workflow-model: ^0.2.0
     dependencies:
