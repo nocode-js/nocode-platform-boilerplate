@@ -13,7 +13,10 @@ export class MongoProvider {
   private client: MongoClient | null = null;
   private db: Db | null = null;
 
-  private constructor(private readonly uri: string, private readonly dbName: string) {}
+  private constructor(
+    private readonly uri: string,
+    private readonly dbName: string
+  ) {}
 
   public async getDb(): Promise<Db> {
     if (this.db) {
