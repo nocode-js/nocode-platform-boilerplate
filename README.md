@@ -1,14 +1,14 @@
-![NoCode API Builder Template](.github/template-cover.png)
+![No-Code Platform Boilerplate](.github/cover.png)
 
-# NoCode API Builder Template
+# No-Code Platform Boilerplate
 
-Powerful no-code API builder template. Clone this repo and start your no-code API builder today. The API builder allows you to create REST API endpoints using a visual editor. You can request the endpoint from any HTTP client. Additionally, the template provides a simple UI to test your endpoints. You can easily extend this template and add your own features.
+Powerful Next.js boilerplate. Clone this repo and start your no-code platform today. The platform allows you to create REST API endpoints using a no-code editor. You can request the endpoint from any HTTP client. Additionally, the boilerplate provides a simple UI to test your endpoints. You can easily extend this template and add your own features.
 
 <p align="center">
-  <img width="570" height="488" src=".github/preview.webp" alt="Preview of NoCode API Builder">
+  <img width="570" height="488" src=".github/preview.webp" alt="Preview of No-Code Platform Boilerplate">
 </p>
 
-This templates uses:
+This boilerplate uses:
 
 * [Next.js](https://github.com/vercel/next.js/)
 * [Tailwindcss](https://github.com/tailwindlabs/tailwindcss)
@@ -16,7 +16,7 @@ This templates uses:
 * [🚚 Sequential Workflow Machine](https://github.com/nocode-js/sequential-workflow-machine)
 * [⛽ Sequential Workflow Editor](https://github.com/nocode-js/sequential-workflow-editor)
 
-The template supports two types of storage:
+The boilerplate supports two types of storage:
 
 * `memory` - in-memory storage, used by default, for development purposes.
 * `mongodb` - MongoDB storage, requires `MONGODB_URI` environment variable.
@@ -37,9 +37,9 @@ MONGODB_DB=nocodeApiBuilder
 
 ## 🚀 Deployment
 
-To deploy this template, you need any compatible with Next.js hosting.
+To deploy this boilerplate, you need any compatible with Next.js hosting.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fnocode-js%2Fnocode-api-builder-template&project-name=nocode-api-builder&repository-name=nocode-api-builder&env=STORAGE_TYPE,MONGODB_URI)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fnocode-js%2Fnocode-platform-boilerplate&project-name=nocode-platform&repository-name=nocode-platform&env=STORAGE_TYPE,MONGODB_URI)
 
 To deploy this template to Vercel you need to set `STORAGE_TYPE=mongodb` and `MONGODB_URI` environment variables. The memory storage doesn't work with cloud hosting. We recommend to use [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) for database hosting.
 
@@ -54,8 +54,8 @@ npm install -g pnpm
 Clone this repository:
 
 ```bash
-git clone https://github.com/nocode-js/nocode-api-builder-template.git
-cd nocode-api-builder-template
+git clone https://github.com/nocode-js/nocode-platform-boilerplate.git
+cd nocode-platform-boilerplate
 ```
 
 Install dependencies:
@@ -72,4 +72,4 @@ pnpm dev
 
 ## 💡 License
 
-This template is released under the MIT license.
+This boilerplate is released under the MIT license.
