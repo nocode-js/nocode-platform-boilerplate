@@ -35,6 +35,10 @@ MONGODB_URI=mongodb://localhost:27017
 MONGODB_DB=nocodeApiBuilder
 ```
 
+### Pro
+
+🤩 Pssst... do you prefer React and Nest.js? Check the [No-Code Platform Boilerplate Pro](https://nocode-js.com/nocode-platform-boilerplate-pro/pricing).
+
 ## 🚀 Deployment
 
 To deploy this boilerplate, you need any compatible with Next.js hosting.
