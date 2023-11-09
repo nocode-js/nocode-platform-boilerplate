@@ -49,7 +49,7 @@ export default function DesignTab(props: DesignTabProps) {
   return (
     <SequentialWorkflowDesigner
       definition={props.state.definition}
-      globalEditor={editor.rootEditor}
+      rootEditor={editor.rootEditor}
       stepEditor={editor.stepEditor}
       validatorConfiguration={{
         root: editor.rootValidator,
