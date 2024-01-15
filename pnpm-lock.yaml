@@ -39,17 +39,17 @@ dependencies:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
   sequential-workflow-designer:
-    specifier: ^0.17.0
-    version: 0.17.0(sequential-workflow-model@0.2.0)
+    specifier: ^0.18.1
+    version: 0.18.1(sequential-workflow-model@0.2.0)
   sequential-workflow-designer-react:
-    specifier: ^0.17.0
-    version: 0.17.0(react-dom@18.2.0)(react@18.2.0)(sequential-workflow-designer@0.17.0)
+    specifier: ^0.18.1
+    version: 0.18.1(react-dom@18.2.0)(react@18.2.0)(sequential-workflow-designer@0.18.1)
   sequential-workflow-editor:
-    specifier: ^0.11.0
-    version: 0.11.0(sequential-workflow-editor-model@0.11.0)(sequential-workflow-model@0.2.0)
+    specifier: ^0.11.3
+    version: 0.11.3(sequential-workflow-editor-model@0.11.3)(sequential-workflow-model@0.2.0)
   sequential-workflow-editor-model:
-    specifier: ^0.11.0
-    version: 0.11.0(sequential-workflow-model@0.2.0)
+    specifier: ^0.11.3
+    version: 0.11.3(sequential-workflow-model@0.2.0)
   sequential-workflow-machine:
     specifier: ^0.5.2
     version: 0.5.2(sequential-workflow-model@0.2.0)(xstate@4.38.2)
@@ -2382,41 +2382,41 @@ packages:
       lru-cache: 6.0.0
     dev: false
 
-  /sequential-workflow-designer-react@0.17.0(react-dom@18.2.0)(react@18.2.0)(sequential-workflow-designer@0.17.0):
-    resolution: {integrity: sha512-Qcj/QBhsVpCVZCUrahDD7SqespviFcs5TPDOxsP07FsM77xHZZjxHMrw05hRK14iouK+xTVBcMIeNPIO9IE8fA==}
+  /sequential-workflow-designer-react@0.18.1(react-dom@18.2.0)(react@18.2.0)(sequential-workflow-designer@0.18.1):
+    resolution: {integrity: sha512-r8viBpSsjyzdNEInZ/6t/f3Xj8Eve5mOJ91OpcAr50mykSg+oQ1jtjyv5P0WGHk8ANPPngmIr/Y9d+Kz7Hqxxg==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
-      sequential-workflow-designer: ^0.17.0
+      sequential-workflow-designer: ^0.18.1
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      sequential-workflow-designer: 0.17.0(sequential-workflow-model@0.2.0)
+      sequential-workflow-designer: 0.18.1(sequential-workflow-model@0.2.0)
     dev: false
 
-  /sequential-workflow-designer@0.17.0(sequential-workflow-model@0.2.0):
-    resolution: {integrity: sha512-RzKn99irxTqsLn84RkMp7Q6XnvVjufG3xTKUy89uSC9a4CgG0k70jL36zLXxpW7cGEjjzGK/LgIeQ9/kiUOInQ==}
+  /sequential-workflow-designer@0.18.1(sequential-workflow-model@0.2.0):
+    resolution: {integrity: sha512-pL2sS4dJT5xSBx1rmViLcuppAPhvZDMGq9/wHehTV93aK/QzJhLeW3hna0UephrjPWSafclDdijYwsNgLq87cg==}
     peerDependencies:
       sequential-workflow-model: ^0.2.0
     dependencies:
       sequential-workflow-model: 0.2.0
     dev: false
 
-  /sequential-workflow-editor-model@0.11.0(sequential-workflow-model@0.2.0):
-    resolution: {integrity: sha512-FhLZNA4rTgteMfeVGRiLZW1e+FfGBjhFrUMhFdsh6vPNKfk6yuHqOGUquHpxe2m7sE+hqaa6xwuI/zEzQoGFsA==}
+  /sequential-workflow-editor-model@0.11.3(sequential-workflow-model@0.2.0):
+    resolution: {integrity: sha512-qJtuoR4OKjaUA0h5Mbv+3radPxI9GwszfymcnNJVJwhTWTI/JbMcW+4XIivmQ39fm55b5FIc0hsgtiOyxMhZzg==}
     peerDependencies:
       sequential-workflow-model: ^0.2.0
     dependencies:
       sequential-workflow-model: 0.2.0
     dev: false
 
-  /sequential-workflow-editor@0.11.0(sequential-workflow-editor-model@0.11.0)(sequential-workflow-model@0.2.0):
-    resolution: {integrity: sha512-uDX/E4EG5OMsLN/EPiThWG6vgjl+vAjqhW7t03gqknXoQbgshbAn5Q0oSBP4CNizEGwSZcfXu3Lx2RrDDEeDig==}
+  /sequential-workflow-editor@0.11.3(sequential-workflow-editor-model@0.11.3)(sequential-workflow-model@0.2.0):
+    resolution: {integrity: sha512-sy1d55x2BRfJ5fdEqA0l0bLBE8WRVSTZPjEfurRPhj5ejFhU2QB7VycDEtVPEcEjiKkHNg52JiovvjbUpujLcQ==}
     peerDependencies:
-      sequential-workflow-editor-model: ^0.11.0
+      sequential-workflow-editor-model: ^0.11.3
       sequential-workflow-model: ^0.2.0
     dependencies:
-      sequential-workflow-editor-model: 0.11.0(sequential-workflow-model@0.2.0)
+      sequential-workflow-editor-model: 0.11.3(sequential-workflow-model@0.2.0)
       sequential-workflow-model: 0.2.0
     dev: false
 
