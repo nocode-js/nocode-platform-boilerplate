@@ -9,7 +9,7 @@ export interface EndpointListPageProps {
   endpoints: EndpointJSON[];
 }
 
-export async function EndpointListPage(props: EndpointListPageProps) {
+export function EndpointListPage(props: EndpointListPageProps) {
   const router = useRouter();
 
   const endpoints = props.endpoints.map(e => ({
