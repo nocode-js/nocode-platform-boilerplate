@@ -20,7 +20,7 @@ export function TestTab(props: TestTabProps) {
       return {
         name: input.name,
         value: props.state.userInput[input.name],
-        error: props.state.parserResult.errors ? props.state.parserResult.errors[input.name] ?? null : null
+        error: props.state.parserResult.errors ? (props.state.parserResult.errors[input.name] ?? null) : null
       };
     });
   }, [props.state.parserResult.errors, props.inputDefinitions.variables, props.state.userInput]);

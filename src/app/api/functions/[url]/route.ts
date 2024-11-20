@@ -3,11 +3,12 @@ import { EndpointWorkflowMachine } from '@/lib/workflows/endpoint/machine/Endpoi
 import { storage } from '@/lib/repositories/storage';
 import { NextResponse } from 'next/server';
 
-export async function POST(req: Request, props: { params: { url: string } }) {
+export async function POST(req: Request, props: { params: Promise<{ url: string }> }) {
+  const { url } = await props.params;
   const body = await req.text();
   const inputs = body ? JSON.parse(body) : Object.fromEntries(new URL(req.url).searchParams);
 
-  const endpoint = await storage.endpoint.tryGetByUrl(props.params.url);
+  const endpoint = await storage.endpoint.tryGetByUrl(url);
   if (!endpoint) {
     return NextResponse.json('Endpoint not found', {
       status: 404

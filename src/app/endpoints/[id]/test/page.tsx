@@ -9,20 +9,21 @@ export const metadata: Metadata = {
 };
 
 interface PageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default async function Page(props: PageProps) {
-  const data = await getData(props.params.id);
+  const { id } = await props.params;
+  const data = await getData(id);
 
   if (!data.endpoint) {
     return <NotFound />;
   }
   return (
     <DefaultLayout>
-      <TestEndpointPage id={props.params.id} endpoint={data.endpoint} />
+      <TestEndpointPage id={id} endpoint={data.endpoint} />
     </DefaultLayout>
   );
 }

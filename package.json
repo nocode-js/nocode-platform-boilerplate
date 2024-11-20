@@ -17,23 +17,23 @@
     "autoprefixer": "^10.4.14",
     "eslint": "^8.43.0",
     "eslint-config-next": "^13.4.7",
-    "next": "14.2.3",
+    "next": "15.0.3",
     "postcss": "8.4.24",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "sequential-workflow-designer": "^0.21.2",
-    "sequential-workflow-designer-react": "^0.21.2",
-    "sequential-workflow-editor": "^0.12.1",
-    "sequential-workflow-editor-model": "^0.12.1",
+    "sequential-workflow-designer": "^0.27.0",
+    "sequential-workflow-designer-react": "^0.27.0",
+    "sequential-workflow-editor": "^0.14.4",
+    "sequential-workflow-editor-model": "^0.14.4",
     "sequential-workflow-model": "^0.2.0",
-    "sequential-workflow-machine": "^0.6.0",
-    "tailwindcss": "^3.4.4",
+    "sequential-workflow-machine": "^0.7.1",
+    "tailwindcss": "^3.4.15",
     "typescript": "5.4.5",
-    "uuid": "^9.0.1",
+    "uuid": "^11.0.3",
     "mongodb": "^5.6.0"
   },
   "devDependencies": {
-    "prettier": "^3.3.2",
+    "prettier": "^3.3.3",
     "@types/uuid": "^9.0.4"
   }
 }

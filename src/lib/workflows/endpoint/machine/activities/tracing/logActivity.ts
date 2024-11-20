@@ -9,7 +9,7 @@ export const logActivity = createAtomActivity<LogStep, EndpointWorkflowGlobalSta
     let message = $dynamics.readAny(step.properties.message);
 
     for (const variable of step.properties.variables.variables) {
-      let value = $variables.isSet(variable.name) ? $variables.read(variable.name) ?? '<empty>' : '<not set>';
+      let value = $variables.isSet(variable.name) ? ($variables.read(variable.name) ?? '<empty>') : '<not set>';
       if (typeof value === 'object') {
         value = JSON.stringify(value);
       }
